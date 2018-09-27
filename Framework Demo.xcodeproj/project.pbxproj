@@ -29,6 +29,7 @@
 		C6E79555215CA4F600F539E7 /* RxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E79554215CA4F600F539E7 /* RxRealm.framework */; };
 		C6E79557215CA4FA00F539E7 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E79556215CA4FA00F539E7 /* RxSwift.framework */; };
 		C6E79559215CA4FF00F539E7 /* SwiftEntryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E79558215CA4FF00F539E7 /* SwiftEntryKit.framework */; };
+		C6E7955E215CAC1300F539E7 /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E7955D215CAC1300F539E7 /* Hero.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		C6E79554215CA4F600F539E7 /* RxRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRealm.framework; path = Carthage/Build/iOS/RxRealm.framework; sourceTree = "<group>"; };
 		C6E79556215CA4FA00F539E7 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		C6E79558215CA4FF00F539E7 /* SwiftEntryKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEntryKit.framework; path = Carthage/Build/iOS/SwiftEntryKit.framework; sourceTree = "<group>"; };
+		C6E7955C215CAA3D00F539E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C6E7955D215CAC1300F539E7 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 				C6E79557215CA4FA00F539E7 /* RxSwift.framework in Frameworks */,
 				C6E79555215CA4F600F539E7 /* RxRealm.framework in Frameworks */,
 				C6E79553215CA4F200F539E7 /* RxOptional.framework in Frameworks */,
+				C6E7955E215CAC1300F539E7 /* Hero.framework in Frameworks */,
 				C6E7954F215CA4EA00F539E7 /* RxFlow.framework in Frameworks */,
 				C6E7954D215CA4E600F539E7 /* RxCocoa.framework in Frameworks */,
 				C6E7954B215CA4E300F539E7 /* RxBlocking.framework in Frameworks */,
@@ -107,6 +111,7 @@
 		C6E7950C215C2A4900F539E7 = {
 			isa = PBXGroup;
 			children = (
+				C6E7955C215CAA3D00F539E7 /* README.md */,
 				C6E79517215C2A4A00F539E7 /* Framework Demo */,
 				C6E7952C215C2A4D00F539E7 /* Framework DemoTests */,
 				C6E79516215C2A4A00F539E7 /* Products */,
@@ -148,6 +153,7 @@
 		C6E79539215CA4AF00F539E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6E7955D215CAC1300F539E7 /* Hero.framework */,
 				C6E79558215CA4FF00F539E7 /* SwiftEntryKit.framework */,
 				C6E79556215CA4FA00F539E7 /* RxSwift.framework */,
 				C6E79554215CA4F600F539E7 /* RxRealm.framework */,
@@ -310,6 +316,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxRealm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftEntryKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Hero.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputFileListPaths = (
@@ -331,6 +338,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxRealm.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftEntryKit.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Hero.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
