@@ -25,3 +25,9 @@ To create elegant transition animations from one view controller to another duri
 - SwiftEntryKit
 To elegantly show notifications of events, such as the loss of network connectivity. 
 
+## Future dependancies
+
+It is my intention to implement:
+
+- SwiftLint
+To provide a consistant code style

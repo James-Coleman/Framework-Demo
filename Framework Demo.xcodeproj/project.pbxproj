@@ -30,6 +30,9 @@
 		C6E79557215CA4FA00F539E7 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E79556215CA4FA00F539E7 /* RxSwift.framework */; };
 		C6E79559215CA4FF00F539E7 /* SwiftEntryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E79558215CA4FF00F539E7 /* SwiftEntryKit.framework */; };
 		C6E7955E215CAC1300F539E7 /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E7955D215CAC1300F539E7 /* Hero.framework */; };
+		C6E79563215D7E4300F539E7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E79562215D7E4300F539E7 /* API.swift */; };
+		C6E79565215D7F2500F539E7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E79564215D7F2500F539E7 /* Model.swift */; };
+		C6E79567215D82C300F539E7 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E79566215D82C300F539E7 /* Flow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		C6E79558215CA4FF00F539E7 /* SwiftEntryKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEntryKit.framework; path = Carthage/Build/iOS/SwiftEntryKit.framework; sourceTree = "<group>"; };
 		C6E7955C215CAA3D00F539E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C6E7955D215CAC1300F539E7 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
+		C6E79562215D7E4300F539E7 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		C6E79564215D7F2500F539E7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C6E79566215D82C300F539E7 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +137,14 @@
 		C6E79517215C2A4A00F539E7 /* Framework Demo */ = {
 			isa = PBXGroup;
 			children = (
+				C6E7955F215D762F00F539E7 /* Model Controllers */,
+				C6E79560215D764C00F539E7 /* View Controllers */,
+				C6E79561215D765900F539E7 /* View Models */,
+				C6E79562215D7E4300F539E7 /* API.swift */,
 				C6E79518215C2A4A00F539E7 /* AppDelegate.swift */,
+				C6E79564215D7F2500F539E7 /* Model.swift */,
 				C6E7951A215C2A4A00F539E7 /* ViewController.swift */,
+				C6E79566215D82C300F539E7 /* Flow.swift */,
 				C6E7951C215C2A4A00F539E7 /* Main.storyboard */,
 				C6E7951F215C2A4D00F539E7 /* Assets.xcassets */,
 				C6E79521215C2A4D00F539E7 /* LaunchScreen.storyboard */,
@@ -172,6 +184,27 @@
 				C6E7953A215CA4AF00F539E7 /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6E7955F215D762F00F539E7 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		C6E79560215D764C00F539E7 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C6E79561215D765900F539E7 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,7 +403,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6E7951B215C2A4A00F539E7 /* ViewController.swift in Sources */,
+				C6E79567215D82C300F539E7 /* Flow.swift in Sources */,
+				C6E79563215D7E4300F539E7 /* API.swift in Sources */,
 				C6E79519215C2A4A00F539E7 /* AppDelegate.swift in Sources */,
+				C6E79565215D7F2500F539E7 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

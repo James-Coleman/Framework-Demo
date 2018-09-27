@@ -7,15 +7,29 @@
 //
 
 import UIKit
+import RxSwift
+import RxFlow
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let disposeBag = DisposeBag()
+    var coordinator = Coordinator()
+    lazy var appFlow: AppFlow = {
+        return AppFlow()
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        guard let window = self.window else { return false }
+        
+        Flows.whenReady(flow1: appFlow) { [unowned window] (flowroot) in
+            window.rootViewController = flowroot
+        }
+        
         return true
     }
 
