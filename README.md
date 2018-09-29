@@ -31,3 +31,6 @@ It is my intention to implement:
 
 - SwiftLint
 To provide a consistant code style
+
+- HGPlaceholders (or similar)
+To show a loading message (or no data message) when a tableview is empty

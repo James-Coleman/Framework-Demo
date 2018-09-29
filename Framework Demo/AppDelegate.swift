@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.rootViewController = flowroot
         }
         
+        coordinator.coordinate(flow: appFlow, withStepper: OneStepper(withSingleStep: AppStep.home))
+        
         return true
     }
 

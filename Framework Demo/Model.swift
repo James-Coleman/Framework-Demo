@@ -19,7 +19,7 @@ class Result: Object, Decodable {
     @objc dynamic var laps         : String = ""
     @objc dynamic var status       : String = ""
     
-    let race = LinkingObjects(fromType: RaceUnique.self, property: "results")
+    let race = LinkingObjects(fromType: Race.self, property: "results")
     
     private enum CodingKeys: String, CodingKey {
         
@@ -29,7 +29,7 @@ class Result: Object, Decodable {
     // Could you use the init to reach into the race LinkedObject, pull out the season and round, and then combine that with the number of the result to create a unique id for each result?
 }
 
-class RaceUnique: Object, Decodable {
+class Race: Object, Decodable {
     @objc dynamic var season    : String = ""
     @objc dynamic var round     : String = ""
     @objc dynamic var stringUrl : String = ""
@@ -103,9 +103,9 @@ class RaceUnique: Object, Decodable {
 }
 
 
-class RaceTableUnique: Object, Decodable {
+class RaceTable: Object, Decodable {
     @objc dynamic var season: String = ""
-    let races = List<RaceUnique>()
+    let races = List<Race>()
     
     @objc dynamic var id: String = "1"
     
@@ -128,7 +128,7 @@ class RaceTableUnique: Object, Decodable {
         let season = try container.decode(String.self, forKey: .season)
         self.season = season
         
-        let raceList = try container.decodeIfPresent([RaceUnique].self, forKey: .races) ?? []
+        let raceList = try container.decodeIfPresent([Race].self, forKey: .races) ?? []
         races.append(objectsIn: raceList)
     }
     
@@ -145,7 +145,7 @@ class RaceTableUnique: Object, Decodable {
     }
 }
 
-class MRDataUnique: Object, Decodable {
+class MRData: Object, Decodable {
     @objc dynamic var stringXmlns : String = ""
     @objc dynamic var series      : String = ""
     @objc dynamic var stringUrl   : String = ""
@@ -153,7 +153,7 @@ class MRDataUnique: Object, Decodable {
     @objc dynamic var offset      : String = ""
     @objc dynamic var total       : String = ""
     
-    @objc dynamic var raceTable: RaceTableUnique?
+    @objc dynamic var raceTable: RaceTable?
     
     var xmlns: URL? { return URL(string: stringXmlns) }
     var url: URL? { return URL(string: stringUrl) }
@@ -173,8 +173,8 @@ class MRDataUnique: Object, Decodable {
     }
 }
 
-class ErgastResponseUnique: Object, Decodable {
-    @objc dynamic var mrData: MRDataUnique?
+class ErgastResponse: Object, Decodable {
+    @objc dynamic var mrData: MRData?
     @objc dynamic var id: String = "1"
     
     override static func primaryKey() -> String? {

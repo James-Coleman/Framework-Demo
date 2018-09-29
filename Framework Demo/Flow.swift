@@ -11,8 +11,63 @@ import RxFlow
 
 enum AppStep: Step {
     case home
-    case results(id: Int) // TODO: "id: Int" is a placeholder for now, change it for the actual results selected.
+    case results(race: Race)
     case settings
+}
+
+class ResultsFlow: Flow {
+    
+    var root: Presentable {
+        return self.rootViewController
+    }
+    
+    private let seasonViewModel: SeasonViewModel
+    
+    private lazy var rootViewController: UINavigationController = {
+        let navCon = UINavigationController()
+        
+        let seasonVC = SeasonViewController()
+        seasonVC.viewModel = seasonViewModel
+        seasonVC.tabBarItem = UITabBarItem(title: "Results", image: nil, selectedImage: nil)
+        navCon.pushViewController(seasonVC, animated: false)
+        
+        return navCon
+    }()
+    
+    init(with seasonViewModel: SeasonViewModel) {
+        self.seasonViewModel = seasonViewModel
+    }
+    
+    func navigate(to step: Step) -> NextFlowItems {
+        guard let step = step as? AppStep else { return NextFlowItems.none }
+        
+        switch step {
+        /*
+        case .home:
+            return navigateToSeason()
+        */
+        case .results(let race):
+            return navigateToResults(of: race)
+        default:
+            return .none
+        }
+    }
+    
+    /*
+    private func navigateToSeason() -> NextFlowItems {
+        return .one(flowItem: NextFlowItem(nextPresentable: seasonVC, nextStepper: seasonViewModel))
+    }
+    */
+    
+    private func navigateToResults(of race: Race) -> NextFlowItems {
+        let resultsVC = ResultsViewController()
+        resultsVC.race = race
+        resultsVC.viewModel = ResultsViewModel()
+        rootViewController.pushViewController(resultsVC, animated: true)
+        
+        return .none // At the moment, this cannot navigate anywhere
+    }
+    
 }
 
 class AppFlow: Flow {
@@ -27,33 +82,32 @@ class AppFlow: Flow {
         return tabBarCon
     }()
     
-    init() {
-        
-    }
-    
     func navigate(to step: Step) -> NextFlowItems {
         guard let step = step as? AppStep else { return NextFlowItems.none }
         
         switch step {
         case .home:
             return startAtHome()
-        case .results(let id):
-            return navigateToResults()
         case .settings:
             return showSettings()
+        default:
+            return .none
         }
     }
     
     private func startAtHome() -> NextFlowItems {
+        let seasonViewModel = SeasonViewModel()
+        let resultsFlow = ResultsFlow(with: seasonViewModel)
         
-    }
-    
-    private func navigateToResults() -> NextFlowItems {
+        Flows.whenReady(flow1: resultsFlow) { (resultsRoot) in
+            self.rootViewController.setViewControllers([resultsRoot], animated: false)
+        }
         
+        return .one(flowItem: NextFlowItem(nextPresentable: resultsFlow, nextStepper: seasonViewModel))
     }
     
     private func showSettings() -> NextFlowItems {
-        
+        return .none
     }
     
     
