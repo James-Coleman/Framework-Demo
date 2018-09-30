@@ -5,7 +5,7 @@ github "Moya/Moya" >= 10.0
 github "RxSwiftCommunity/RxOptional"
 github "RxSwiftCommunity/RxRealmDataSources"
 github "ashleymills/Reachability.swift"
-github "huri000/SwiftEntryKit" == 0.6.0
+github "huri000/SwiftEntryKit" == 0.8.0
 github "xmartlabs/Eureka" ~> 4.3
 github "RxSwiftCommunity/RxFlow"
 github "HeroTransitions/Hero"

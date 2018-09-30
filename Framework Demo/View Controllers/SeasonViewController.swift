@@ -14,17 +14,6 @@ final class SeasonViewController: UITableViewController {
     public var viewModel: SeasonViewModel!
     private let bag = DisposeBag()
     
-    private func setupNavigationControllerAppearence() {
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
-        navigationController?.navigationBar.barTintColor = .red
-        navigationController?.navigationBar.tintColor = .white
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
     private func setupRefreshControl() {
         refreshControl = UIRefreshControl()
         refreshControl?.tintColor = .white
@@ -36,10 +25,11 @@ final class SeasonViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavigationControllerAppearence()
         setupRefreshControl()
         
-        title = "Current Season"
+        viewModel.title
+            .bind(to: rx.title)
+            .disposed(by: bag)
         
         let reuseIdentifier = "cell"
         
@@ -72,25 +62,9 @@ final class SeasonViewController: UITableViewController {
         
         tableView.rx.realmModelSelected(Race.self)
             .bind { race in
-                
-                /*
-                let detailVC = ResultsViewController()
-                //                detailVC.year = race.season
-                //                detailVC.round = race.round
-                detailVC.race = race
-                
-                self.navigationController?.pushViewController(detailVC, animated: true)
-                */
-                
                 self.viewModel.selected(race)
             }
             .disposed(by: bag)
         
-        /*
-        tableView.rx.itemSelected
-            .bind { indexPath in
-                self.tableView.deselectRow(at: indexPath, animated: true)
-        }
-        */
     }
 }

@@ -9,11 +9,15 @@
 import Foundation
 import RealmSwift
 import RxFlow
+import RxSwift
 
 final class SeasonViewModel {
     private let seasonModelController = SeasonModelController()
     
     private let realm = try! Realm()
+    
+    /// The title to show on the Results View Controller
+    public var title = BehaviorSubject<String>(value: "Current Season")
     
     public var tableViewData: Results<Race> {
         let currentDate = Date()
@@ -26,6 +30,9 @@ final class SeasonViewModel {
         
         if currentSeasonRaces.count == 0 {
             seasonModelController.getCurrentSeason()
+        } else {
+            let newTitle = "\(currentSeasonRaces[0].season) Season"
+            title.onNext(newTitle)
         }
         
         return races
