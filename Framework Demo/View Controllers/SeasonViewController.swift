@@ -43,10 +43,10 @@ final class SeasonViewController: UITableViewController {
             
             cell.accessoryType = .disclosureIndicator
             
-            cell.selectionStyle = .none
+//            cell.selectionStyle = .none
         }
         
-        let tableData = Observable.changeset(from: viewModel.tableViewData)
+        let tableData = viewModel.tableViewData
             .share()
         
         tableData

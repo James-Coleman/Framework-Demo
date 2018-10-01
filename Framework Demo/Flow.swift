@@ -10,9 +10,10 @@ import UIKit
 import RxFlow
 
 enum AppStep: Step {
+    case driver(result: Result)
     case home
-    case results(race: Race)
     case news(item: Int)
+    case results(race: Race)
     case settings
 }
 
@@ -43,12 +44,10 @@ class ResultsFlow: Flow {
         guard let step = step as? AppStep else { return NextFlowItems.none }
         
         switch step {
-        /*
-        case .home:
-            return navigateToSeason()
-        */
         case .results(let race):
             return navigateToResults(of: race)
+        case .driver(let result):
+            return navigateToDriver(from: result)
         default:
             return .none
         }
@@ -66,7 +65,16 @@ class ResultsFlow: Flow {
         resultsVC.viewModel = ResultsViewModel()
         rootViewController.pushViewController(resultsVC, animated: true)
         
-        return .none // At the moment, this cannot navigate anywhere
+        return .one(flowItem: NextFlowItem(nextPresentable: resultsVC, nextStepper: resultsVC.viewModel))
+    }
+    
+    private func navigateToDriver(from result: Result) -> NextFlowItems {
+        let driverVM = DriverViewModel(result: result)
+        let driverVC = DriverViewController(viewModel: driverVM)
+        
+        rootViewController.pushViewController(driverVC, animated: true)
+        
+        return .none
     }
     
 }
@@ -107,11 +115,8 @@ class AppFlow: Flow {
         return self.rootViewController
     }
     
-    private lazy var rootViewController: UITabBarController = {
-        let tabBarCon = UITabBarController()
-        tabBarCon.tabBar.barTintColor = .red
-        tabBarCon.tabBar.tintColor = .white
-        tabBarCon.tabBar.unselectedItemTintColor = .darkGray
+    private lazy var rootViewController: AppTabCon = {
+        let tabBarCon = AppTabCon()
         return tabBarCon
     }()
     

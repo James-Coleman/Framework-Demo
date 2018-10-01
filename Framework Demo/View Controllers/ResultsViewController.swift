@@ -25,8 +25,10 @@ final class ResultsViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         
         let dataSource = RxTableViewRealmDataSource<Result>(cellIdentifier: reuseIdentifier, cellType: UITableViewCell.self) { (cell, indexPath, result) in
+            
             cell.textLabel?.text = "\(result.positionText) - \(result.number) - \(result.laps)"
-            cell.selectionStyle = .none
+            
+            cell.accessoryType = .disclosureIndicator
         }
         
         let tableData = Observable.changeset(from: viewModel.tableViewData(race: race))
@@ -36,11 +38,10 @@ final class ResultsViewController: UITableViewController {
             .bind(to: tableView.rx.realmChanges(dataSource))
             .disposed(by: bag)
         
-        /*
-        tableView.rx.itemSelected
-            .bind { indexPath in
-                self.tableView.deselectRow(at: indexPath, animated: true)
-        }
-        */
+        tableView.rx.realmModelSelected(Result.self)
+            .bind { result in
+                self.viewModel.selected(result)
+            }
+            .disposed(by: bag)
     }
 }

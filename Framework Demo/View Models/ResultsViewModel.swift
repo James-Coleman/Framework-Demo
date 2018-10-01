@@ -34,3 +34,8 @@ final class ResultsViewModel {
     }
 }
 
+extension ResultsViewModel: Stepper {
+    public func selected(_ result: Result) {
+        step.accept(AppStep.driver(result: result))
+    }
+}
