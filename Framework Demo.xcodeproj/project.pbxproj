@@ -15,6 +15,7 @@
 		C6CA7E702162C8450016290A /* DriverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E6F2162C8450016290A /* DriverViewModel.swift */; };
 		C6CA7E722162CC090016290A /* FloatLabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E712162CC090016290A /* FloatLabelRow.swift */; };
 		C6CA7E752162CC460016290A /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E742162CC460016290A /* FloatLabelTextField.swift */; };
+		C6CA7E77216336F40016290A /* LoadingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E76216336F40016290A /* LoadingRow.swift */; };
 		C6E79519215C2A4A00F539E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E79518215C2A4A00F539E7 /* AppDelegate.swift */; };
 		C6E7951E215C2A4A00F539E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E7951C215C2A4A00F539E7 /* Main.storyboard */; };
 		C6E79520215C2A4D00F539E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6E7951F215C2A4D00F539E7 /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		C6CA7E6F2162C8450016290A /* DriverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewModel.swift; sourceTree = "<group>"; };
 		C6CA7E712162CC090016290A /* FloatLabelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelRow.swift; sourceTree = "<group>"; };
 		C6CA7E742162CC460016290A /* FloatLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		C6CA7E76216336F40016290A /* LoadingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingRow.swift; sourceTree = "<group>"; };
 		C6E79515215C2A4A00F539E7 /* Framework Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Framework Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E79518215C2A4A00F539E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6E7951D215C2A4A00F539E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -168,6 +170,15 @@
 			path = FloatLabelRow;
 			sourceTree = "<group>";
 		};
+		C6CA7E78216337150016290A /* Custom Eureka */ = {
+			isa = PBXGroup;
+			children = (
+				C6CA7E76216336F40016290A /* LoadingRow.swift */,
+				C6CA7E732162CC130016290A /* FloatLabelRow */,
+			);
+			path = "Custom Eureka";
+			sourceTree = "<group>";
+		};
 		C6E7950C215C2A4900F539E7 = {
 			isa = PBXGroup;
 			children = (
@@ -191,7 +202,7 @@
 		C6E79517215C2A4A00F539E7 /* Framework Demo */ = {
 			isa = PBXGroup;
 			children = (
-				C6CA7E732162CC130016290A /* FloatLabelRow */,
+				C6CA7E78216337150016290A /* Custom Eureka */,
 				C6CA7E6C2162C6810016290A /* Extensions */,
 				C6CA7E632160ACD40016290A /* Views */,
 				C6E7956A215EC9C200F539E7 /* Reactive+RxRealmDataSources.swift */,
@@ -473,6 +484,7 @@
 				C6E79567215D82C300F539E7 /* Flow.swift in Sources */,
 				C6E79575215ED14F00F539E7 /* ResultsModelController.swift in Sources */,
 				C6E79563215D7E4300F539E7 /* API.swift in Sources */,
+				C6CA7E77216336F40016290A /* LoadingRow.swift in Sources */,
 				C6E79571215ED09E00F539E7 /* ResultsViewController.swift in Sources */,
 				C6CA7E692162C5BB0016290A /* AppTabCon.swift in Sources */,
 				C6CA7E652160ACF10016290A /* AppNavCon.swift in Sources */,

@@ -28,6 +28,15 @@ class DriverViewController: FormViewController {
         // Do any additional setup after loading the view.
         title = "Driver"
         
+        let plainSection = Section(header: "", footer: "")
+        plainSection.header?.height = { CGFloat.leastNormalMagnitude }
+        plainSection.footer?.height = { CGFloat.leastNormalMagnitude }
+        
+        form
+            +++ plainSection
+            <<< LoadingRow()
+        
+        /*
         form
             +++ Section()
             <<< TextFloatLabelRow() { row in
@@ -55,6 +64,7 @@ class DriverViewController: FormViewController {
                 row.value = "British"
                 row.disabled = true
         }
+        */
     }
 
 }
