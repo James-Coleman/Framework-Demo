@@ -26,8 +26,9 @@ class DriverViewController: FormViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        title = "Driver"
+        title = viewModel.driver.familyName
         
+        /*
         let plainSection = Section(header: "", footer: "")
         plainSection.header?.height = { CGFloat.leastNormalMagnitude }
         plainSection.footer?.height = { CGFloat.leastNormalMagnitude }
@@ -35,36 +36,43 @@ class DriverViewController: FormViewController {
         form
             +++ plainSection
             <<< LoadingRow()
+        */
         
-        /*
         form
             +++ Section()
             <<< TextFloatLabelRow() { row in
-                row.title = "Name"
-                row.value = "Lewis Hamilton"
+                row.title = "Full Name"
+                row.value = viewModel.driver.fullName
                 row.disabled = true
             }
             <<< TextFloatLabelRow() { row in
                 row.title = "TLA"
-                row.value = "HAM"
+                row.value = viewModel.driver.code
                 row.disabled = true
             }
             <<< TextFloatLabelRow() { row in
                 row.title = "Date of Birth"
-                row.value = "1st January 1970"
+                row.value = viewModel.driver.stringDateOfBirth
                 row.disabled = true
             }
             <<< TextFloatLabelRow() { row in
                 row.title = "Age"
-                row.value = "48"
+                row.value = ""
                 row.disabled = true
             }
             <<< TextFloatLabelRow() { row in
                 row.title = "Nationality"
-                row.value = "British"
+                row.value = viewModel.driver.nationality
                 row.disabled = true
+            }
+            <<< TextFloatLabelRow() { row in
+                row.title = "More Info"
+                row.value = viewModel.driver.stringUrl
+                row.disabled = true
+                row.onCellSelection({ [unowned self] (cell, row) in
+                    self.viewModel.selectedUrl()
+                })
         }
-        */
     }
 
 }

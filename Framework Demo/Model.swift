@@ -10,6 +10,32 @@ import Foundation
 import Realm
 import RealmSwift
 
+class Driver: Object, Decodable {
+    @objc dynamic var driverId          : String = ""
+    @objc dynamic var permanentNumber   : String = ""
+    @objc dynamic var code              : String = ""
+    @objc dynamic var stringUrl         : String = ""
+    @objc dynamic var givenName         : String = ""
+    @objc dynamic var familyName        : String = ""
+    @objc dynamic var stringDateOfBirth : String = ""
+    @objc dynamic var nationality       : String = ""
+    
+    var url: URL? { return URL(string: stringUrl) }
+    
+    var fullName: String { return "\(givenName) \(familyName)" }
+    
+    override static func primaryKey() -> String? {
+        return "driverId"
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case stringUrl = "url"
+        case stringDateOfBirth = "dateOfBirth"
+        
+        case driverId, permanentNumber, code, givenName, familyName, nationality
+    }
+}
+
 class Result: Object, Decodable {
     @objc dynamic var number       : String = ""
     @objc dynamic var position     : String = ""
@@ -18,11 +44,12 @@ class Result: Object, Decodable {
     @objc dynamic var grid         : String = ""
     @objc dynamic var laps         : String = ""
     @objc dynamic var status       : String = ""
+    @objc dynamic var driver       : Driver?
     
     let race = LinkingObjects(fromType: Race.self, property: "results")
     
     private enum CodingKeys: String, CodingKey {
-        
+        case driver = "Driver"
         case number, position, positionText, points, grid, laps, status
     }
     

@@ -8,13 +8,15 @@
 
 import UIKit
 import RxFlow
+import SafariServices
 
 enum AppStep: Step {
-    case driver(result: Result)
+    case driver(driver: Driver)
     case home
     case news(item: Int)
     case results(race: Race)
     case settings
+    case website(url: URL)
 }
 
 class ResultsFlow: Flow {
@@ -46,8 +48,10 @@ class ResultsFlow: Flow {
         switch step {
         case .results(let race):
             return navigateToResults(of: race)
-        case .driver(let result):
-            return navigateToDriver(from: result)
+        case .driver(let driver):
+            return navigateToDriver(driver)
+        case .website(let url):
+            return navigateToURL(url)
         default:
             return .none
         }
@@ -68,11 +72,21 @@ class ResultsFlow: Flow {
         return .one(flowItem: NextFlowItem(nextPresentable: resultsVC, nextStepper: resultsVC.viewModel))
     }
     
-    private func navigateToDriver(from result: Result) -> NextFlowItems {
-        let driverVM = DriverViewModel(result: result)
+    private func navigateToDriver(_ driver: Driver) -> NextFlowItems {
+        let driverVM = DriverViewModel(driver: driver)
         let driverVC = DriverViewController(viewModel: driverVM)
         
         rootViewController.pushViewController(driverVC, animated: true)
+        
+        return .one(flowItem: NextFlowItem(nextPresentable: driverVC, nextStepper: driverVM))
+    }
+    
+    private func navigateToURL(_ url: URL) -> NextFlowItems {
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredBarTintColor = .red
+        safariVC.preferredControlTintColor = .white
+        
+        rootViewController.present(safariVC, animated: true)
         
         return .none
     }

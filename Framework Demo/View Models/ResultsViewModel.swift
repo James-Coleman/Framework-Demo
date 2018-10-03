@@ -36,6 +36,7 @@ final class ResultsViewModel {
 
 extension ResultsViewModel: Stepper {
     public func selected(_ result: Result) {
-        step.accept(AppStep.driver(result: result))
+        guard let driver = result.driver else { return }
+        step.accept(AppStep.driver(driver: driver))
     }
 }

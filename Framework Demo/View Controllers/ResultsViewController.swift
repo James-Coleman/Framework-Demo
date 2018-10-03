@@ -26,7 +26,7 @@ final class ResultsViewController: UITableViewController {
         
         let dataSource = RxTableViewRealmDataSource<Result>(cellIdentifier: reuseIdentifier, cellType: UITableViewCell.self) { (cell, indexPath, result) in
             
-            cell.textLabel?.text = "\(result.positionText) - \(result.number) - \(result.laps)"
+            cell.textLabel?.text = "\(result.positionText). \(result.driver?.code ?? result.number) - \(result.laps) laps"
             
             cell.accessoryType = .disclosureIndicator
         }

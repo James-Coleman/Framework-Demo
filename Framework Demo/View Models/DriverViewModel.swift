@@ -10,13 +10,16 @@ import Foundation
 import RxFlow
 
 final class DriverViewModel {
-    public var result: Result
+    public var driver: Driver
     
-    init(result: Result) {
-        self.result = result
+    init(driver: Driver) {
+        self.driver = driver
     }
 }
 
 extension DriverViewModel: Stepper {
-    
+    public func selectedUrl() {
+        guard let url = driver.url else { return }
+        step.accept(AppStep.website(url: url))
+    }
 }
