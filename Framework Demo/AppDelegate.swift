@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxFlow
+import SwiftEntryKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,17 +21,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var appFlow: AppFlow = {
         return AppFlow()
     }()
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        guard let window = self.window else { return false }
+    
+    private func setupFlow() {
+        guard let window = self.window else { return }
         
         Flows.whenReady(flow1: appFlow) { [unowned window] (flowroot) in
             window.rootViewController = flowroot
         }
         
         coordinator.coordinate(flow: appFlow, withStepper: OneStepper(withSingleStep: AppStep.home))
+    }
+    
+    private func setupReachability() {
+        guard let reachability = ReachabilityManager() else { return }
+        reachability.reach.subscribe(onNext: { (reachable) in
+            if reachable == false {
+                let title = EKProperty.LabelContent(text: "Offline", style: EKProperty.LabelStyle.init(font: UIFont.systemFont(ofSize: UIFont.systemFontSize), color: .black))
+                let description = EKProperty.LabelContent(text: "Functionality will be limited until online", style: EKProperty.LabelStyle.init(font: UIFont.systemFont(ofSize: UIFont.systemFontSize), color: .black))
+                let message = EKSimpleMessage(title: title, description: description)
+                let notification = EKNotificationMessage(simpleMessage: message)
+                let content = EKNotificationMessageView(with: notification)
+                
+                var attributes = EKAttributes.topToast
+                attributes.entryBackground = .visualEffect(style: .light)
+                
+                SwiftEntryKit.display(entry: content, using: attributes)
+            }
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
+        .disposed(by: disposeBag)
+    }
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        
+        setupFlow()
+        setupReachability()
         
         return true
     }

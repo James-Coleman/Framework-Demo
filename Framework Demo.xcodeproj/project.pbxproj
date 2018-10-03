@@ -16,6 +16,7 @@
 		C6CA7E722162CC090016290A /* FloatLabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E712162CC090016290A /* FloatLabelRow.swift */; };
 		C6CA7E752162CC460016290A /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E742162CC460016290A /* FloatLabelTextField.swift */; };
 		C6CA7E77216336F40016290A /* LoadingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E76216336F40016290A /* LoadingRow.swift */; };
+		C6CA7E7C21656A8D0016290A /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E7B21656A8D0016290A /* ReachabilityManager.swift */; };
 		C6E79519215C2A4A00F539E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E79518215C2A4A00F539E7 /* AppDelegate.swift */; };
 		C6E7951E215C2A4A00F539E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E7951C215C2A4A00F539E7 /* Main.storyboard */; };
 		C6E79520215C2A4D00F539E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6E7951F215C2A4D00F539E7 /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		C6CA7E712162CC090016290A /* FloatLabelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelRow.swift; sourceTree = "<group>"; };
 		C6CA7E742162CC460016290A /* FloatLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		C6CA7E76216336F40016290A /* LoadingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingRow.swift; sourceTree = "<group>"; };
+		C6CA7E7B21656A8D0016290A /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		C6E79515215C2A4A00F539E7 /* Framework Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Framework Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E79518215C2A4A00F539E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6E7951D215C2A4A00F539E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				C6E79518215C2A4A00F539E7 /* AppDelegate.swift */,
 				C6E79564215D7F2500F539E7 /* Model.swift */,
 				C6E79566215D82C300F539E7 /* Flow.swift */,
+				C6CA7E7B21656A8D0016290A /* ReachabilityManager.swift */,
 				C6E7951C215C2A4A00F539E7 /* Main.storyboard */,
 				C6E7951F215C2A4D00F539E7 /* Assets.xcassets */,
 				C6E79521215C2A4D00F539E7 /* LaunchScreen.storyboard */,
@@ -495,6 +498,7 @@
 				C6E7956D215ECFE400F539E7 /* SeasonViewModel.swift in Sources */,
 				C6CA7E722162CC090016290A /* FloatLabelRow.swift in Sources */,
 				C6E79565215D7F2500F539E7 /* Model.swift in Sources */,
+				C6CA7E7C21656A8D0016290A /* ReachabilityManager.swift in Sources */,
 				C6CA7E67216159530016290A /* NewsViewModel.swift in Sources */,
 				C6E79573215ED0DC00F539E7 /* ResultsViewModel.swift in Sources */,
 				C6E79569215EC91B00F539E7 /* SeasonViewController.swift in Sources */,
