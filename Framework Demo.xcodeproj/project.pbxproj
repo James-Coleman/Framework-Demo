@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C64D0AA32168DF4700271056 /* WikiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64D0AA22168DF4700271056 /* WikiAPI.swift */; };
+		C64D0AA52168F95B00271056 /* CircleImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64D0AA42168F95B00271056 /* CircleImageRow.swift */; };
 		C6CA7E652160ACF10016290A /* AppNavCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E642160ACF10016290A /* AppNavCon.swift */; };
 		C6CA7E67216159530016290A /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E66216159530016290A /* NewsViewModel.swift */; };
 		C6CA7E692162C5BB0016290A /* AppTabCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E682162C5BB0016290A /* AppTabCon.swift */; };
@@ -39,7 +41,7 @@
 		C6E79557215CA4FA00F539E7 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E79556215CA4FA00F539E7 /* RxSwift.framework */; };
 		C6E79559215CA4FF00F539E7 /* SwiftEntryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E79558215CA4FF00F539E7 /* SwiftEntryKit.framework */; };
 		C6E7955E215CAC1300F539E7 /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E7955D215CAC1300F539E7 /* Hero.framework */; };
-		C6E79563215D7E4300F539E7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E79562215D7E4300F539E7 /* API.swift */; };
+		C6E79563215D7E4300F539E7 /* ErgastAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E79562215D7E4300F539E7 /* ErgastAPI.swift */; };
 		C6E79565215D7F2500F539E7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E79564215D7F2500F539E7 /* Model.swift */; };
 		C6E79567215D82C300F539E7 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E79566215D82C300F539E7 /* Flow.swift */; };
 		C6E79569215EC91B00F539E7 /* SeasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E79568215EC91B00F539E7 /* SeasonViewController.swift */; };
@@ -62,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C64D0AA22168DF4700271056 /* WikiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiAPI.swift; sourceTree = "<group>"; };
+		C64D0AA42168F95B00271056 /* CircleImageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageRow.swift; sourceTree = "<group>"; };
 		C6CA7E642160ACF10016290A /* AppNavCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavCon.swift; sourceTree = "<group>"; };
 		C6CA7E66216159530016290A /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		C6CA7E682162C5BB0016290A /* AppTabCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabCon.swift; sourceTree = "<group>"; };
@@ -99,7 +103,7 @@
 		C6E79558215CA4FF00F539E7 /* SwiftEntryKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEntryKit.framework; path = Carthage/Build/iOS/SwiftEntryKit.framework; sourceTree = "<group>"; };
 		C6E7955C215CAA3D00F539E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C6E7955D215CAC1300F539E7 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
-		C6E79562215D7E4300F539E7 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		C6E79562215D7E4300F539E7 /* ErgastAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErgastAPI.swift; sourceTree = "<group>"; };
 		C6E79564215D7F2500F539E7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C6E79566215D82C300F539E7 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		C6E79568215EC91B00F539E7 /* SeasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +150,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C64D0AA12168DF2E00271056 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C6E79562215D7E4300F539E7 /* ErgastAPI.swift */,
+				C64D0AA22168DF4700271056 /* WikiAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		C6CA7E632160ACD40016290A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +190,7 @@
 			children = (
 				C6CA7E76216336F40016290A /* LoadingRow.swift */,
 				C6CA7E732162CC130016290A /* FloatLabelRow */,
+				C64D0AA42168F95B00271056 /* CircleImageRow.swift */,
 			);
 			path = "Custom Eureka";
 			sourceTree = "<group>";
@@ -211,7 +225,7 @@
 				C6E7955F215D762F00F539E7 /* Model Controllers */,
 				C6E79560215D764C00F539E7 /* View Controllers */,
 				C6E79561215D765900F539E7 /* View Models */,
-				C6E79562215D7E4300F539E7 /* API.swift */,
+				C64D0AA12168DF2E00271056 /* API */,
 				C6E79518215C2A4A00F539E7 /* AppDelegate.swift */,
 				C6E79564215D7F2500F539E7 /* Model.swift */,
 				C6E79566215D82C300F539E7 /* Flow.swift */,
@@ -482,11 +496,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C64D0AA32168DF4700271056 /* WikiAPI.swift in Sources */,
 				C6CA7E702162C8450016290A /* DriverViewModel.swift in Sources */,
 				C6CA7E6E2162C81F0016290A /* DriverViewController.swift in Sources */,
+				C64D0AA52168F95B00271056 /* CircleImageRow.swift in Sources */,
 				C6E79567215D82C300F539E7 /* Flow.swift in Sources */,
 				C6E79575215ED14F00F539E7 /* ResultsModelController.swift in Sources */,
-				C6E79563215D7E4300F539E7 /* API.swift in Sources */,
+				C6E79563215D7E4300F539E7 /* ErgastAPI.swift in Sources */,
 				C6CA7E77216336F40016290A /* LoadingRow.swift in Sources */,
 				C6E79571215ED09E00F539E7 /* ResultsViewController.swift in Sources */,
 				C6CA7E692162C5BB0016290A /* AppTabCon.swift in Sources */,

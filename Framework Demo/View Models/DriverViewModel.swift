@@ -8,12 +8,17 @@
 
 import Foundation
 import RxFlow
+import RxSwift
+import RxRealm
 
 final class DriverViewModel {
-    public var driver: Driver
+    private var driver: Driver
+    
+    public var observableDriver: Observable<Driver>
     
     init(driver: Driver) {
         self.driver = driver
+        self.observableDriver = Observable.from(object: driver)
     }
 }
 

@@ -8,7 +8,6 @@
 
 
 import Moya
-import RxMoya
 
 enum ErgastAPI {
     case getCurrentSeason

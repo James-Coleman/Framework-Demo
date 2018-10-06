@@ -19,6 +19,7 @@ class AppNavCon: UINavigationController {
         
         navigationBar.titleTextAttributes      = textAttributes
         navigationBar.largeTitleTextAttributes = textAttributes
+        navigationBar.barStyle                 = .black // This changes the status bar colour.
         navigationBar.barTintColor             = .red
         navigationBar.tintColor                = .white
         navigationBar.prefersLargeTitles       = true
