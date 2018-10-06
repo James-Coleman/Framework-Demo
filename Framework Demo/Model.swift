@@ -23,7 +23,7 @@ class Driver: Object, Decodable {
     var url: URL? { return URL(string: stringUrl) }
     
     var fullName: String { return "\(givenName) \(familyName)" }
-    var initials: String { return "\(givenName.first ?? " ") \(familyName.last ?? " ")" }
+    var initials: String { return "\(givenName.first ?? " ") \(familyName.first ?? " ")" }
     
     override static func primaryKey() -> String? {
         return "driverId"

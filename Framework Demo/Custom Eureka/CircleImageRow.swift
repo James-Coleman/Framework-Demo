@@ -11,11 +11,17 @@ import Eureka
 
 public class CircleCell: Cell<UIImage>, CellType {
     
-    var circleImage: UIImageView
+    public var circleImage: UIImageView
+    public var label: UILabel
     
     init() {
         self.circleImage = UIImageView()
+        self.label = UILabel()
+        
         super.init(style: .default, reuseIdentifier: nil)
+        
+        addSubview(circleImage)
+        addSubview(label)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -23,7 +29,13 @@ public class CircleCell: Cell<UIImage>, CellType {
     }
     
     required init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        fatalError("init(style:reuseIdentifier:) has not been implemented")
+        self.circleImage = UIImageView()
+        self.label = UILabel()
+        
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        addSubview(circleImage)
+        addSubview(label)
     }
     
     public override func setup() {
@@ -38,7 +50,10 @@ public class CircleCell: Cell<UIImage>, CellType {
         circleImage.translatesAutoresizingMaskIntoConstraints = false
         circleImage.backgroundColor = .lightGray
         circleImage.layer.cornerRadius = (cellHeight - (2 * circleMargin)) / 2
-        addSubview(circleImage)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
         
         NSLayoutConstraint.activate([
             circleImage.widthAnchor.constraint(equalTo: circleImage.heightAnchor),
@@ -49,7 +64,10 @@ public class CircleCell: Cell<UIImage>, CellType {
             circleImage.bottomAnchor.constraint(greaterThanOrEqualTo: bottomAnchor, constant: circleMargin),
             
             circleImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            circleImage.centerYAnchor.constraint(equalTo: centerYAnchor)
+            circleImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            label.centerXAnchor.constraint(equalTo: centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: centerYAnchor)
             ])
     }
 }
@@ -63,6 +81,13 @@ public final class CircleRow: Row<CircleCell>, RowType {
     public var image: UIImage? {
         didSet {
             cell.circleImage.image = image
+            cell.setup()
+        }
+    }
+    
+    public var labelText: String? {
+        didSet {
+            cell.label.text = labelText
             cell.setup()
         }
     }

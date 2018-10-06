@@ -42,6 +42,8 @@ class DriverViewController: FormViewController {
         
         title = driver.familyName
         
+        imageRow.labelText = driver.initials
+        
         nameRow.value = driver.fullName
         tlaRow.value = driver.code
         dobRow.value = driver.stringDateOfBirth
@@ -55,17 +57,9 @@ class DriverViewController: FormViewController {
         
         // Do any additional setup after loading the view.
         
-        viewModel.observableDriver
-            .subscribe(onNext: { [weak self] (driver) in
-                self?.setupView(for: driver)
-            }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .disposed(by: bag)
-        
         form = Form(
             Section()
-                <<< CircleRow(DriverRowName.image.rawValue) { row in
-                    
-                }
+                <<< CircleRow(DriverRowName.image.rawValue)
                 
                 +++ Section()
                 <<< TextFloatLabelRow(DriverRowName.name.rawValue) { row in
@@ -95,6 +89,12 @@ class DriverViewController: FormViewController {
                         self.viewModel.selectedUrl()
                     })
             })
+        
+        viewModel.observableDriver
+            .subscribe(onNext: { [unowned self] (driver) in
+                self.setupView(for: driver)
+                }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: bag)
     }
     
 }

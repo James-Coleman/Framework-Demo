@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import RealmSwift
 import Moya
+import RxMoya
 
 struct ResultsModelController {
     private let bag = DisposeBag()
