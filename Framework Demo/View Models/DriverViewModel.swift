@@ -13,12 +13,17 @@ import RxRealm
 
 final class DriverViewModel {
     private var driver: Driver
+    private let driverModelController = DriverModelController()
     
     public var observableDriver: Observable<Driver>
     
     init(driver: Driver) {
         self.driver = driver
         self.observableDriver = Observable.from(object: driver)
+        
+        if driver.imgUrl == "" {
+            try? driverModelController.getImage(driver: driver)
+        }
     }
 }
 

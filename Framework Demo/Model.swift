@@ -19,11 +19,38 @@ class Driver: Object, Decodable {
     @objc dynamic var familyName        : String = ""
     @objc dynamic var stringDateOfBirth : String = ""
     @objc dynamic var nationality       : String = ""
+    @objc dynamic var imgUrl            : String = ""
     
     var url: URL? { return URL(string: stringUrl) }
     
     var fullName: String { return "\(givenName) \(familyName)" }
     var initials: String { return "\(givenName.first ?? " ") \(familyName.first ?? " ")" }
+    
+    /**
+     Splits the `stringUrl` (wikipedia article url) on the character `/` to find the article name
+     
+     This is a function instead of a computed variable to allow it to throw an error
+     
+     - throws:
+     Throws a `DriverError` if there are no components in the stringUrl after splitting on `/`
+     
+     - returns:
+     The last string component in the `stringUrl` after splitting on `/`
+    */
+    public func wikipediaArticleName() throws -> String {
+        let components = stringUrl.components(separatedBy: "/")
+        guard let last = components.last else { throw DriverError.emptyComponent }
+        
+        return last
+    }
+    
+    /**
+     At the moment only used when trying to extract the Wikipedia article name from the `stringUrl`
+    */
+    private enum DriverError: Error {
+        /// There are no components after splitting on `/`
+        case emptyComponent
+    }
     
     override static func primaryKey() -> String? {
         return "driverId"

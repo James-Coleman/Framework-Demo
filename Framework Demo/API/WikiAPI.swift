@@ -8,12 +8,12 @@
 
 import Moya
 
-enum WikipediaAPI {
+enum WikiAPI {
     case getImageUrls(title: String)
     case downloadImage(url: String)
 }
 
-extension WikipediaAPI: TargetType {
+extension WikiAPI: TargetType {
     var baseURL: URL {
         switch self {
         case .getImageUrls:

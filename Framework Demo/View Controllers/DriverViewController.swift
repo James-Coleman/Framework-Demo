@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import RxSwift
+import SwiftEntryKit
 
 class DriverViewController: FormViewController {
     
@@ -50,6 +51,38 @@ class DriverViewController: FormViewController {
         ageRow.value = "TBC"
         nationalityRow.value = driver.nationality
         moreInfoRow.value = driver.stringUrl
+        
+        if driver.imgUrl != "" {
+             setImage(for: driver.imgUrl)
+        }
+    }
+    
+    private func setImage(for url: String) {
+        guard
+            let imageRow = form.rowBy(tag: DriverRowName.image.rawValue) as? CircleRow,
+//            let data = FileManager.default.contents(atPath: url),
+//            let urlUrl = URL(fileURLWithPath: url)
+//            let data = try? Data(contentsOf: urlUrl),
+//            let image = UIImage(data: data)
+        FileManager.default.fileExists(atPath: url),
+        let image = UIImage(contentsOfFile: url)
+        else {
+            let title = EKProperty.LabelContent(text: "Set Image Failed", style: EKProperty.LabelStyle.init(font: UIFont.systemFont(ofSize: UIFont.systemFontSize), color: .black))
+            let description = EKProperty.LabelContent(text: "\(url)", style: EKProperty.LabelStyle.init(font: UIFont.systemFont(ofSize: UIFont.systemFontSize), color: .black))
+            let message = EKSimpleMessage(title: title, description: description)
+            let notification = EKNotificationMessage(simpleMessage: message)
+            let content = EKNotificationMessageView(with: notification)
+            
+            var attributes = EKAttributes.topToast
+            attributes.entryBackground = .visualEffect(style: .light)
+            
+            SwiftEntryKit.display(entry: content, using: attributes)
+            
+            return
+        }
+        
+        imageRow.image = image
+        imageRow.labelText = ""
     }
     
     override func viewDidLoad() {
