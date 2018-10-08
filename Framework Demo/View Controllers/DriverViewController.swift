@@ -58,14 +58,15 @@ class DriverViewController: FormViewController {
     }
     
     private func setImage(for url: String) {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let picturesDirectory = paths[0]
+        
+        let filepath = picturesDirectory.appendingPathComponent(url)
+        let path = filepath.path
+        
         guard
             let imageRow = form.rowBy(tag: DriverRowName.image.rawValue) as? CircleRow,
-//            let data = FileManager.default.contents(atPath: url),
-//            let urlUrl = URL(fileURLWithPath: url)
-//            let data = try? Data(contentsOf: urlUrl),
-//            let image = UIImage(data: data)
-        FileManager.default.fileExists(atPath: url),
-        let image = UIImage(contentsOfFile: url)
+        let image = UIImage(contentsOfFile: path)
         else {
             let title = EKProperty.LabelContent(text: "Set Image Failed", style: EKProperty.LabelStyle.init(font: UIFont.systemFont(ofSize: UIFont.systemFontSize), color: .black))
             let description = EKProperty.LabelContent(text: "\(url)", style: EKProperty.LabelStyle.init(font: UIFont.systemFont(ofSize: UIFont.systemFontSize), color: .black))

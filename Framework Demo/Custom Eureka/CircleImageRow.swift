@@ -49,6 +49,8 @@ public class CircleCell: Cell<UIImage>, CellType {
         
         circleImage.translatesAutoresizingMaskIntoConstraints = false
         circleImage.backgroundColor = .lightGray
+        circleImage.contentMode = .scaleAspectFill
+        circleImage.clipsToBounds = true
         circleImage.layer.cornerRadius = (cellHeight - (2 * circleMargin)) / 2
         
         label.translatesAutoresizingMaskIntoConstraints = false

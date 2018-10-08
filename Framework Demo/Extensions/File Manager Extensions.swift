@@ -23,10 +23,11 @@ extension FileManager {
         let picturesDirectory = paths[0]
         
         let uuid = UUID().uuidString
-        let filename = picturesDirectory.appendingPathComponent("\(uuid).jpg")
+        let filename = "\(uuid).jpg"
+        let filepath = picturesDirectory.appendingPathComponent(filename)
         
-        try pictureData.write(to: filename)
+        try pictureData.write(to: filepath)
         
-        return filename.relativeString
+        return filename
     }
 }
