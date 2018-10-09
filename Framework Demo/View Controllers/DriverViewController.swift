@@ -52,32 +52,23 @@ class DriverViewController: FormViewController {
         nationalityRow.value = driver.nationality
         moreInfoRow.value = driver.stringUrl
         
-        if driver.imgUrl != "" {
-             setImage(for: driver.imgUrl)
-        }
     }
     
-    private func setImage(for url: String) {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let picturesDirectory = paths[0]
-        
-        let filepath = picturesDirectory.appendingPathComponent(url)
-        let path = filepath.path
-        
+    private func setImage(for path: String) {
         guard
             let imageRow = form.rowBy(tag: DriverRowName.image.rawValue) as? CircleRow,
-        let image = UIImage(contentsOfFile: path)
+            let image = UIImage(contentsOfFile: path)
         else {
-            let title = EKProperty.LabelContent(text: "Set Image Failed", style: EKProperty.LabelStyle.init(font: UIFont.systemFont(ofSize: UIFont.systemFontSize), color: .black))
-            let description = EKProperty.LabelContent(text: "\(url)", style: EKProperty.LabelStyle.init(font: UIFont.systemFont(ofSize: UIFont.systemFontSize), color: .black))
-            let message = EKSimpleMessage(title: title, description: description)
-            let notification = EKNotificationMessage(simpleMessage: message)
-            let content = EKNotificationMessageView(with: notification)
-            
-            var attributes = EKAttributes.topToast
-            attributes.entryBackground = .visualEffect(style: .light)
-            
-            SwiftEntryKit.display(entry: content, using: attributes)
+//            let title = EKProperty.LabelContent(text: "Set Image Failed", style: EKProperty.LabelStyle.init(font: UIFont.systemFont(ofSize: UIFont.systemFontSize), color: .black))
+//            let description = EKProperty.LabelContent(text: "\(path)", style: EKProperty.LabelStyle.init(font: UIFont.systemFont(ofSize: UIFont.systemFontSize), color: .black))
+//            let message = EKSimpleMessage(title: title, description: description)
+//            let notification = EKNotificationMessage(simpleMessage: message)
+//            let content = EKNotificationMessageView(with: notification)
+//
+//            var attributes = EKAttributes.topToast
+//            attributes.entryBackground = .visualEffect(style: .light)
+//
+//            SwiftEntryKit.display(entry: content, using: attributes)
             
             return
         }
@@ -128,6 +119,12 @@ class DriverViewController: FormViewController {
             .subscribe(onNext: { [unowned self] (driver) in
                 self.setupView(for: driver)
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: bag)
+        
+        viewModel.observableDriverImage
+            .subscribe(onNext: { [unowned self] (driverImage) in
+                self.setImage(for: driverImage.path)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: bag)
     }
     

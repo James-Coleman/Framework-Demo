@@ -16,18 +16,18 @@ extension FileManager {
      Propegates the `Data.write(to:)` error
      
      - returns:
-     
+     The path of the newly saved image data as a `String`
     */
     func save(pictureData: Data) throws -> String {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let picturesDirectory = paths[0]
+        let documentDirectory = paths[0]
         
         let uuid = UUID().uuidString
         let filename = "\(uuid).jpg"
-        let filepath = picturesDirectory.appendingPathComponent(filename)
+        let filepath = documentDirectory.appendingPathComponent(filename)
         
         try pictureData.write(to: filepath)
         
-        return filename
+        return filepath.path
     }
 }
