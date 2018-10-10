@@ -15,6 +15,13 @@ final class ResultsViewController: UITableViewController {
     
     private let bag = DisposeBag()
     
+    private lazy var emptyPlaceholder: UILabel = {
+        let label = UILabel(frame: tableView.frame)
+        label.textAlignment = .center
+        label.text = "This race is due to happen \(race.date)"
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,10 +39,24 @@ final class ResultsViewController: UITableViewController {
         }
         
         let tableData = Observable.changeset(from: viewModel.tableViewData(race: race))
-            .share()
+//            .share()
         
         tableData
             .bind(to: tableView.rx.realmChanges(dataSource))
+            .disposed(by: bag)
+        
+        tableData
+            .subscribe(onNext: { [unowned self] (results, changes) in
+                if results.isEmpty {
+                    self.tableView.backgroundView = self.emptyPlaceholder
+                    self.tableView.separatorStyle = .none
+                    self.tableView.isScrollEnabled = false
+                } else {
+                    self.tableView.backgroundView = nil
+                    self.tableView.separatorStyle = .singleLine
+                    self.tableView.isScrollEnabled = true
+                }
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: bag)
         
         tableView.rx.realmModelSelected(Result.self)

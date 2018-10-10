@@ -193,9 +193,9 @@
 		C6CA7E78216337150016290A /* Custom Eureka */ = {
 			isa = PBXGroup;
 			children = (
-				C6CA7E76216336F40016290A /* LoadingRow.swift */,
-				C6CA7E732162CC130016290A /* FloatLabelRow */,
 				C64D0AA42168F95B00271056 /* CircleImageRow.swift */,
+				C6CA7E732162CC130016290A /* FloatLabelRow */,
+				C6CA7E76216336F40016290A /* LoadingRow.swift */,
 			);
 			path = "Custom Eureka";
 			sourceTree = "<group>";
@@ -223,18 +223,18 @@
 		C6E79517215C2A4A00F539E7 /* Framework Demo */ = {
 			isa = PBXGroup;
 			children = (
+				C64D0AA12168DF2E00271056 /* API */,
 				C6CA7E78216337150016290A /* Custom Eureka */,
 				C6CA7E6C2162C6810016290A /* Extensions */,
-				C6CA7E632160ACD40016290A /* Views */,
-				C6E7956A215EC9C200F539E7 /* Reactive+RxRealmDataSources.swift */,
 				C6E7955F215D762F00F539E7 /* Model Controllers */,
 				C6E79560215D764C00F539E7 /* View Controllers */,
 				C6E79561215D765900F539E7 /* View Models */,
-				C64D0AA12168DF2E00271056 /* API */,
+				C6CA7E632160ACD40016290A /* Views */,
 				C6E79518215C2A4A00F539E7 /* AppDelegate.swift */,
 				C6E79564215D7F2500F539E7 /* Model.swift */,
 				C6E79566215D82C300F539E7 /* Flow.swift */,
 				C6CA7E7B21656A8D0016290A /* ReachabilityManager.swift */,
+				C6E7956A215EC9C200F539E7 /* Reactive+RxRealmDataSources.swift */,
 				C6E7951C215C2A4A00F539E7 /* Main.storyboard */,
 				C6E7951F215C2A4D00F539E7 /* Assets.xcassets */,
 				C6E79521215C2A4D00F539E7 /* LaunchScreen.storyboard */,

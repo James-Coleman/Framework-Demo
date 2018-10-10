@@ -28,6 +28,6 @@ extension FileManager {
         
         try pictureData.write(to: filepath)
         
-        return filepath.path
+        return filename
     }
 }
