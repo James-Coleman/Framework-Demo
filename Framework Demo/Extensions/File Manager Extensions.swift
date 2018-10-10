@@ -18,16 +18,14 @@ extension FileManager {
      - returns:
      The path of the newly saved image data as a `String`
     */
-    func save(pictureData: Data) throws -> String {
+    func save(pictureData: Data, as name: String) throws -> String {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = paths[0]
         
-        let uuid = UUID().uuidString
-        let filename = "\(uuid).jpg"
-        let filepath = documentDirectory.appendingPathComponent(filename)
+        let filepath = documentDirectory.appendingPathComponent(name)
         
         try pictureData.write(to: filepath)
         
-        return filename
+        return name // Is this necessary in my context anymore?
     }
 }

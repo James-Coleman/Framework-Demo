@@ -21,16 +21,7 @@ struct DriverModelController {
         plugins: [NetworkLoggerPlugin(verbose: false)] // Verbose logging includes the full response. Otherwise logging just includes the headers.
     )
     
-    public func createDriverImage(for driver: Driver) -> DriverImage {
-        let driverImage = DriverImage(driverId: driver.driverId, path: "")
-        try? realm.write {
-            realm.add(driverImage)
-        }
-        try? getImage(driver: driver, driverImage: driverImage)
-        return driverImage
-    }
-    
-    public func getImage(driver: Driver, driverImage: DriverImage) throws {
+    public func getImage(driver: Driver) throws {
         let articleName = try driver.wikipediaArticleName()
         
         wikimediaImageName(of: articleName)
@@ -40,15 +31,14 @@ struct DriverModelController {
                 
                 return data
             }
-            .map(FileManager.default.save)
-            .subscribe(onNext: { (filepath) in
+            .map { (data) -> String in
+                return try FileManager.default.save(pictureData: data, as: driver.imageName)
+            }
+            .subscribe(onNext: { (_) in
                 try? self.realm.write {
-                    driverImage.path = filepath
-                }
-                // Save image in File Manager
-                // Save image url to Driver
-            }, onError: {(error) in
-                print(error) // This doesn't appear able to throw? Must be included in rx?
+                    driver.imageLoaded = true
+                }}, onError: {(error) in
+                    print(error) // This doesn't appear able to throw? Must be included in rx?
             }, onCompleted: nil, onDisposed: nil)
             .disposed(by: bag)
         

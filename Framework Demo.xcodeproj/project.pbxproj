@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C617F2EA2169CD690025916D /* DriverModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C617F2E92169CD690025916D /* DriverModelController.swift */; };
 		C617F2EC216A07710025916D /* File Manager Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C617F2EB216A07710025916D /* File Manager Extensions.swift */; };
+		C64BF5CD216E9E3600D63EF4 /* UITableView Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64BF5CC216E9E3600D63EF4 /* UITableView Extensions.swift */; };
 		C64D0AA32168DF4700271056 /* WikiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64D0AA22168DF4700271056 /* WikiAPI.swift */; };
 		C64D0AA52168F95B00271056 /* CircleImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64D0AA42168F95B00271056 /* CircleImageRow.swift */; };
 		C6CA7E652160ACF10016290A /* AppNavCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E642160ACF10016290A /* AppNavCon.swift */; };
@@ -68,6 +69,7 @@
 /* Begin PBXFileReference section */
 		C617F2E92169CD690025916D /* DriverModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverModelController.swift; sourceTree = "<group>"; };
 		C617F2EB216A07710025916D /* File Manager Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "File Manager Extensions.swift"; sourceTree = "<group>"; };
+		C64BF5CC216E9E3600D63EF4 /* UITableView Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView Extensions.swift"; sourceTree = "<group>"; };
 		C64D0AA22168DF4700271056 /* WikiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiAPI.swift; sourceTree = "<group>"; };
 		C64D0AA42168F95B00271056 /* CircleImageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageRow.swift; sourceTree = "<group>"; };
 		C6CA7E642160ACF10016290A /* AppNavCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavCon.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				C6CA7E6A2162C64E0016290A /* UIColor Extensions.swift */,
+				C64BF5CC216E9E3600D63EF4 /* UITableView Extensions.swift */,
 				C617F2EB216A07710025916D /* File Manager Extensions.swift */,
 			);
 			path = Extensions;
@@ -506,6 +509,7 @@
 				C6CA7E702162C8450016290A /* DriverViewModel.swift in Sources */,
 				C6CA7E6E2162C81F0016290A /* DriverViewController.swift in Sources */,
 				C64D0AA52168F95B00271056 /* CircleImageRow.swift in Sources */,
+				C64BF5CD216E9E3600D63EF4 /* UITableView Extensions.swift in Sources */,
 				C6E79567215D82C300F539E7 /* Flow.swift in Sources */,
 				C6E79575215ED14F00F539E7 /* ResultsModelController.swift in Sources */,
 				C6E79563215D7E4300F539E7 /* ErgastAPI.swift in Sources */,

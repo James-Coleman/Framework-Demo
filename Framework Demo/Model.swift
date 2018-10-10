@@ -19,11 +19,14 @@ class Driver: Object, Decodable {
     @objc dynamic var familyName        : String = ""
     @objc dynamic var stringDateOfBirth : String = ""
     @objc dynamic var nationality       : String = ""
+    @objc dynamic var imageLoaded       : Bool   = false
     
     var url: URL? { return URL(string: stringUrl) }
     
     var fullName: String { return "\(givenName) \(familyName)" }
     var initials: String { return "\(givenName.first ?? " ") \(familyName.first ?? " ")" }
+    
+    var imageName: String { return "\(driverId).jpg" }
     
     /**
      Splits the `stringUrl` (wikipedia article url) on the character `/` to find the article name
@@ -60,34 +63,6 @@ class Driver: Object, Decodable {
         case stringDateOfBirth = "dateOfBirth"
         
         case driverId, permanentNumber, code, givenName, familyName, nationality
-    }
-}
-
-class DriverImage: Object {
-    @objc dynamic var driverId  : String = ""
-    @objc dynamic var path      : String = ""
-    
-    override static func primaryKey() -> String? {
-        return "driverId"
-    }
-    
-    convenience init(driverId: String, path: String) {
-        self.init()
-        
-        self.driverId = driverId
-        self.path = path
-    }
-    
-    required init() {
-        super.init()
-    }
-    
-    required init(value: Any, schema: RLMSchema) {
-        super.init(value: value, schema: schema)
-    }
-    
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init(realm: realm, schema: schema)
     }
 }
 

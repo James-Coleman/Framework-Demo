@@ -52,6 +52,10 @@ class DriverViewController: FormViewController {
         nationalityRow.value = driver.nationality
         moreInfoRow.value = driver.stringUrl
         
+        if driver.imageLoaded {
+            setImage(for: driver.imageName)
+        }
+        
     }
     
     private func setImage(for path: String) {
@@ -128,11 +132,11 @@ class DriverViewController: FormViewController {
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: bag)
         
-        viewModel.observableDriverImage
-            .subscribe(onNext: { [unowned self] (driverImage) in
-                self.setImage(for: driverImage.path)
-            }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .disposed(by: bag)
+//        viewModel.observableDriverImage
+//            .subscribe(onNext: { [unowned self] (driverImage) in
+//                self.setImage(for: driverImage.path)
+//            }, onError: nil, onCompleted: nil, onDisposed: nil)
+//            .disposed(by: bag)
     }
     
 }

@@ -18,23 +18,14 @@ final class DriverViewModel {
     private let realm = try! Realm()
     
     public var observableDriver     : Observable<Driver>
-    public var observableDriverImage: Observable<DriverImage>
+//    public var observableDriverImage: Observable<DriverImage>
     
     init(driver: Driver) {
         self.driver = driver
         self.observableDriver = Observable.from(object: driver)
         
-        guard let driverImage = realm.object(ofType: DriverImage.self, forPrimaryKey: driver.driverId) else {
-            self.observableDriverImage = Observable.from(optional: nil)
-            let newDriverImage = driverModelController.createDriverImage(for: driver)
-            self.observableDriverImage = Observable.from(object: newDriverImage)
-            return
-        }
-        
-        self.observableDriverImage = Observable.from(object: driverImage)
-        
-        if driverImage.path == "" {
-            try? driverModelController.getImage(driver: driver, driverImage: driverImage)
+        if driver.imageLoaded == false {
+            try? driverModelController.getImage(driver: driver)
         }
     }
 }

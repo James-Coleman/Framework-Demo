@@ -48,13 +48,9 @@ final class ResultsViewController: UITableViewController {
         tableData
             .subscribe(onNext: { [unowned self] (results, changes) in
                 if results.isEmpty {
-                    self.tableView.backgroundView = self.emptyPlaceholder
-                    self.tableView.separatorStyle = .none
-                    self.tableView.isScrollEnabled = false
+                    self.tableView.setPlaceholder(to: self.emptyPlaceholder)
                 } else {
-                    self.tableView.backgroundView = nil
-                    self.tableView.separatorStyle = .singleLine
-                    self.tableView.isScrollEnabled = true
+                    self.tableView.setPlaceholder(to: nil)
                 }
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: bag)
