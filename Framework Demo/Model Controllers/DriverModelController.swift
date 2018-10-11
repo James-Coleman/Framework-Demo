@@ -40,7 +40,9 @@ struct DriverModelController {
     private func getImage(driver: Driver) throws {
         let articleName = try driver.wikipediaArticleName()
         
-        wikimediaImageName(of: articleName)
+        guard let articleNameDecoded = articleName.removingPercentEncoding else { throw WikipediaError.cannotRemovePercentEncoding(from: articleName) }
+        
+        wikimediaImageName(of: articleNameDecoded)
             .flatMap(wikimediaCommonsImage)
             .map { (image) -> Data in
                 guard let data = image.jpegData(compressionQuality: 0.8) else { throw WikipediaError.cannotGetDataFromImage }
@@ -65,6 +67,7 @@ struct DriverModelController {
         case cannotParseImage
         case incorrectSplitCount(splitString: String, shouldBeAtLeast: Int, isActually: Int)
         case cannotGetDataFromImage
+        case cannotRemovePercentEncoding(from: String)
     }
     
     /**
@@ -125,8 +128,10 @@ struct DriverModelController {
      - returns:
      The image of the url specified
      */
-    private func wikimediaCommonsImage(from url: String) -> Observable<UIImage> {
-        return provider.rx.request(.downloadImage(url: url))
+    private func wikimediaCommonsImage(from url: String) throws -> Observable<UIImage> {
+        guard let urlDecoded = url.removingPercentEncoding else { throw WikipediaError.cannotRemovePercentEncoding(from: url) }
+        
+        return provider.rx.request(.downloadImage(url: urlDecoded))
             .asObservable()
             .mapImage()
             .filterNil()
