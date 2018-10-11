@@ -13,18 +13,18 @@ import RealmSwift
 import RxRealm
 
 final class DriverViewModel {
+    public var observableDriver: Observable<Driver>
+    
     private var driver: Driver
     private let driverModelController = DriverModelController()
     private let realm = try! Realm()
-    
-    public var observableDriver     : Observable<Driver>
-//    public var observableDriverImage: Observable<DriverImage>
     
     init(driver: Driver) {
         self.driver = driver
         self.observableDriver = Observable.from(object: driver)
         
         if driver.imageLoaded == false {
+            // TODO: Check if the image is already downloaded first before trying to re-download it.
             try? driverModelController.getImage(driver: driver)
         }
     }

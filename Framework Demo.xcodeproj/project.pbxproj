@@ -10,6 +10,8 @@
 		C617F2EA2169CD690025916D /* DriverModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C617F2E92169CD690025916D /* DriverModelController.swift */; };
 		C617F2EC216A07710025916D /* File Manager Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C617F2EB216A07710025916D /* File Manager Extensions.swift */; };
 		C64BF5CD216E9E3600D63EF4 /* UITableView Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64BF5CC216E9E3600D63EF4 /* UITableView Extensions.swift */; };
+		C64BF5CF216F048600D63EF4 /* Date Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64BF5CE216F048600D63EF4 /* Date Extensions.swift */; };
+		C64BF5D2216F0D4800D63EF4 /* DateFormatter Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64BF5D1216F0D4800D63EF4 /* DateFormatter Extensions.swift */; };
 		C64D0AA32168DF4700271056 /* WikiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64D0AA22168DF4700271056 /* WikiAPI.swift */; };
 		C64D0AA52168F95B00271056 /* CircleImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64D0AA42168F95B00271056 /* CircleImageRow.swift */; };
 		C6CA7E652160ACF10016290A /* AppNavCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E642160ACF10016290A /* AppNavCon.swift */; };
@@ -70,6 +72,9 @@
 		C617F2E92169CD690025916D /* DriverModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverModelController.swift; sourceTree = "<group>"; };
 		C617F2EB216A07710025916D /* File Manager Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "File Manager Extensions.swift"; sourceTree = "<group>"; };
 		C64BF5CC216E9E3600D63EF4 /* UITableView Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView Extensions.swift"; sourceTree = "<group>"; };
+		C64BF5CE216F048600D63EF4 /* Date Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Extensions.swift"; sourceTree = "<group>"; };
+		C64BF5D0216F074E00D63EF4 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Playground.playground; path = "Framework Demo/Playground.playground"; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C64BF5D1216F0D4800D63EF4 /* DateFormatter Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter Extensions.swift"; sourceTree = "<group>"; };
 		C64D0AA22168DF4700271056 /* WikiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiAPI.swift; sourceTree = "<group>"; };
 		C64D0AA42168F95B00271056 /* CircleImageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageRow.swift; sourceTree = "<group>"; };
 		C6CA7E642160ACF10016290A /* AppNavCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavCon.swift; sourceTree = "<group>"; };
@@ -177,9 +182,11 @@
 		C6CA7E6C2162C6810016290A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C64BF5CE216F048600D63EF4 /* Date Extensions.swift */,
+				C64BF5D1216F0D4800D63EF4 /* DateFormatter Extensions.swift */,
+				C617F2EB216A07710025916D /* File Manager Extensions.swift */,
 				C6CA7E6A2162C64E0016290A /* UIColor Extensions.swift */,
 				C64BF5CC216E9E3600D63EF4 /* UITableView Extensions.swift */,
-				C617F2EB216A07710025916D /* File Manager Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,6 +233,7 @@
 		C6E79517215C2A4A00F539E7 /* Framework Demo */ = {
 			isa = PBXGroup;
 			children = (
+				C64BF5D0216F074E00D63EF4 /* Playground.playground */,
 				C64D0AA12168DF2E00271056 /* API */,
 				C6CA7E78216337150016290A /* Custom Eureka */,
 				C6CA7E6C2162C6810016290A /* Extensions */,
@@ -234,8 +242,8 @@
 				C6E79561215D765900F539E7 /* View Models */,
 				C6CA7E632160ACD40016290A /* Views */,
 				C6E79518215C2A4A00F539E7 /* AppDelegate.swift */,
-				C6E79564215D7F2500F539E7 /* Model.swift */,
 				C6E79566215D82C300F539E7 /* Flow.swift */,
+				C6E79564215D7F2500F539E7 /* Model.swift */,
 				C6CA7E7B21656A8D0016290A /* ReachabilityManager.swift */,
 				C6E7956A215EC9C200F539E7 /* Reactive+RxRealmDataSources.swift */,
 				C6E7951C215C2A4A00F539E7 /* Main.storyboard */,
@@ -282,9 +290,9 @@
 		C6E7955F215D762F00F539E7 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C6E7956E215ED02F00F539E7 /* SeasonModelController.swift */,
-				C6E79574215ED14F00F539E7 /* ResultsModelController.swift */,
 				C617F2E92169CD690025916D /* DriverModelController.swift */,
+				C6E79574215ED14F00F539E7 /* ResultsModelController.swift */,
+				C6E7956E215ED02F00F539E7 /* SeasonModelController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -292,9 +300,9 @@
 		C6E79560215D764C00F539E7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C6E79568215EC91B00F539E7 /* SeasonViewController.swift */,
-				C6E79570215ED09E00F539E7 /* ResultsViewController.swift */,
 				C6CA7E6D2162C81F0016290A /* DriverViewController.swift */,
+				C6E79570215ED09E00F539E7 /* ResultsViewController.swift */,
+				C6E79568215EC91B00F539E7 /* SeasonViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -302,10 +310,10 @@
 		C6E79561215D765900F539E7 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				C6E7956C215ECFE400F539E7 /* SeasonViewModel.swift */,
 				C6CA7E6F2162C8450016290A /* DriverViewModel.swift */,
 				C6CA7E66216159530016290A /* NewsViewModel.swift */,
 				C6E79572215ED0DC00F539E7 /* ResultsViewModel.swift */,
+				C6E7956C215ECFE400F539E7 /* SeasonViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -517,12 +525,14 @@
 				C6E79571215ED09E00F539E7 /* ResultsViewController.swift in Sources */,
 				C6CA7E692162C5BB0016290A /* AppTabCon.swift in Sources */,
 				C6CA7E652160ACF10016290A /* AppNavCon.swift in Sources */,
+				C64BF5CF216F048600D63EF4 /* Date Extensions.swift in Sources */,
 				C6E79519215C2A4A00F539E7 /* AppDelegate.swift in Sources */,
 				C6CA7E752162CC460016290A /* FloatLabelTextField.swift in Sources */,
 				C6E7956F215ED02F00F539E7 /* SeasonModelController.swift in Sources */,
 				C6E7956B215EC9C200F539E7 /* Reactive+RxRealmDataSources.swift in Sources */,
 				C6E7956D215ECFE400F539E7 /* SeasonViewModel.swift in Sources */,
 				C6CA7E722162CC090016290A /* FloatLabelRow.swift in Sources */,
+				C64BF5D2216F0D4800D63EF4 /* DateFormatter Extensions.swift in Sources */,
 				C6E79565215D7F2500F539E7 /* Model.swift in Sources */,
 				C6CA7E7C21656A8D0016290A /* ReachabilityManager.swift in Sources */,
 				C6CA7E67216159530016290A /* NewsViewModel.swift in Sources */,

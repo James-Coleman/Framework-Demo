@@ -15,10 +15,24 @@ final class ResultsViewController: UITableViewController {
     
     private let bag = DisposeBag()
     
+    private lazy var dateFormatter: DateFormatter = {
+        return DateFormatter()
+    }()
+    
     private lazy var emptyPlaceholder: UILabel = {
         let label = UILabel(frame: tableView.frame)
         label.textAlignment = .center
-        label.text = "This race is due to happen \(race.date)"
+        
+        var labelText: String {
+            if let dateString = try? dateFormatter.appStringDate(from: race.date) {
+                return "This race is due to happen on \(dateString)"
+            } else {
+                return "This race is due to happen in the future"
+            }
+        }
+        
+        label.text = labelText
+        
         return label
     }()
     
@@ -48,7 +62,16 @@ final class ResultsViewController: UITableViewController {
         tableData
             .subscribe(onNext: { [unowned self] (results, changes) in
                 if results.isEmpty {
-                    self.tableView.setPlaceholder(to: self.emptyPlaceholder)
+                    if let date = try? self.dateFormatter.appDate(from: self.race.date), date.isAfterNow() {
+                        // If the race hasn't happened yet, show a label showing when it's due to happen
+                        self.tableView.setPlaceholder(to: self.emptyPlaceholder)
+                    } else {
+                        // If the race is supposed to have happened, show a loading indicator
+                        let activityIndicator = UIActivityIndicatorView(frame: self.tableView.frame)
+                        activityIndicator.style = .gray
+                        activityIndicator.startAnimating()
+                        self.tableView.setPlaceholder(to: activityIndicator)
+                    }
                 } else {
                     self.tableView.setPlaceholder(to: nil)
                 }

@@ -21,6 +21,10 @@ class DriverViewController: FormViewController {
     
     private let bag = DisposeBag()
     
+    private lazy var dateFormatter: DateFormatter = {
+        return DateFormatter()
+    }()
+    
     init(viewModel: DriverViewModel) {
         self.viewModel = viewModel
         super.init(style: UITableView.Style.grouped)
@@ -45,10 +49,25 @@ class DriverViewController: FormViewController {
         
         imageRow.labelText = driver.initials
         
+        var dobValue: String {
+            return (try? dateFormatter.appStringDate(from: driver.stringDateOfBirth)) ?? driver.stringDateOfBirth
+        }
+        
+        var ageValue: String {
+            do {
+                let date = try dateFormatter.appDate(from: driver.stringDateOfBirth)
+                let age = try date.ageInYears()
+                let ageString = "\(age)"
+                return ageString
+            } catch let error {
+                return String(describing: error)
+            }
+        }
+        
         nameRow.value = driver.fullName
         tlaRow.value = driver.code
-        dobRow.value = driver.stringDateOfBirth
-        ageRow.value = "TBC"
+        dobRow.value = dobValue
+        ageRow.value = ageValue
         nationalityRow.value = driver.nationality
         moreInfoRow.value = driver.stringUrl
         
