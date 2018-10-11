@@ -21,7 +21,23 @@ struct DriverModelController {
         plugins: [NetworkLoggerPlugin(verbose: false)] // Verbose logging includes the full response. Otherwise logging just includes the headers.
     )
     
-    public func getImage(driver: Driver) throws {
+    public func checkImage(driver: Driver) throws {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = paths[0]
+        
+        let fileUrl = documentDirectory.appendingPathComponent(driver.imageName)
+        let filePath = fileUrl.path
+        
+        if FileManager.default.fileExists(atPath: filePath) {
+            try realm.write {
+                driver.imageLoaded = true
+            }
+        } else {
+            try getImage(driver: driver)
+        }
+    }
+    
+    private func getImage(driver: Driver) throws {
         let articleName = try driver.wikipediaArticleName()
         
         wikimediaImageName(of: articleName)
@@ -41,7 +57,6 @@ struct DriverModelController {
                     print(error) // This doesn't appear able to throw? Must be included in rx?
             }, onCompleted: nil, onDisposed: nil)
             .disposed(by: bag)
-        
     }
     
     private enum WikipediaError: Error {

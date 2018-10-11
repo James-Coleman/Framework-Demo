@@ -151,11 +151,6 @@ class DriverViewController: FormViewController {
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: bag)
         
-//        viewModel.observableDriverImage
-//            .subscribe(onNext: { [unowned self] (driverImage) in
-//                self.setImage(for: driverImage.path)
-//            }, onError: nil, onCompleted: nil, onDisposed: nil)
-//            .disposed(by: bag)
     }
     
 }

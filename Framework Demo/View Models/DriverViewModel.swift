@@ -24,8 +24,7 @@ final class DriverViewModel {
         self.observableDriver = Observable.from(object: driver)
         
         if driver.imageLoaded == false {
-            // TODO: Check if the image is already downloaded first before trying to re-download it.
-            try? driverModelController.getImage(driver: driver)
+            try? driverModelController.checkImage(driver: driver)
         }
     }
 }
