@@ -14,6 +14,8 @@
 		C64BF5D2216F0D4800D63EF4 /* DateFormatter Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64BF5D1216F0D4800D63EF4 /* DateFormatter Extensions.swift */; };
 		C64D0AA32168DF4700271056 /* WikiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64D0AA22168DF4700271056 /* WikiAPI.swift */; };
 		C64D0AA52168F95B00271056 /* CircleImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64D0AA42168F95B00271056 /* CircleImageRow.swift */; };
+		C6B9038C2170690700895ED0 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9038B2170690700895ED0 /* ImageViewController.swift */; };
+		C6B9038E2170696700895ED0 /* ImageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9038D2170696700895ED0 /* ImageCells.swift */; };
 		C6CA7E652160ACF10016290A /* AppNavCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E642160ACF10016290A /* AppNavCon.swift */; };
 		C6CA7E67216159530016290A /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E66216159530016290A /* NewsViewModel.swift */; };
 		C6CA7E692162C5BB0016290A /* AppTabCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E682162C5BB0016290A /* AppTabCon.swift */; };
@@ -77,6 +79,8 @@
 		C64BF5D1216F0D4800D63EF4 /* DateFormatter Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter Extensions.swift"; sourceTree = "<group>"; };
 		C64D0AA22168DF4700271056 /* WikiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiAPI.swift; sourceTree = "<group>"; };
 		C64D0AA42168F95B00271056 /* CircleImageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageRow.swift; sourceTree = "<group>"; };
+		C6B9038B2170690700895ED0 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		C6B9038D2170696700895ED0 /* ImageCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCells.swift; sourceTree = "<group>"; };
 		C6CA7E642160ACF10016290A /* AppNavCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavCon.swift; sourceTree = "<group>"; };
 		C6CA7E66216159530016290A /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		C6CA7E682162C5BB0016290A /* AppTabCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabCon.swift; sourceTree = "<group>"; };
@@ -170,6 +174,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		C6B9038F2170697F00895ED0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C6B9038D2170696700895ED0 /* ImageCells.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		C6CA7E632160ACD40016290A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +247,7 @@
 			children = (
 				C64BF5D0216F074E00D63EF4 /* Playground.playground */,
 				C64D0AA12168DF2E00271056 /* API */,
+				C6B9038F2170697F00895ED0 /* Cells */,
 				C6CA7E78216337150016290A /* Custom Eureka */,
 				C6CA7E6C2162C6810016290A /* Extensions */,
 				C6E7955F215D762F00F539E7 /* Model Controllers */,
@@ -303,6 +316,7 @@
 				C6CA7E6D2162C81F0016290A /* DriverViewController.swift */,
 				C6E79570215ED09E00F539E7 /* ResultsViewController.swift */,
 				C6E79568215EC91B00F539E7 /* SeasonViewController.swift */,
+				C6B9038B2170690700895ED0 /* ImageViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -524,6 +538,7 @@
 				C6CA7E77216336F40016290A /* LoadingRow.swift in Sources */,
 				C6E79571215ED09E00F539E7 /* ResultsViewController.swift in Sources */,
 				C6CA7E692162C5BB0016290A /* AppTabCon.swift in Sources */,
+				C6B9038E2170696700895ED0 /* ImageCells.swift in Sources */,
 				C6CA7E652160ACF10016290A /* AppNavCon.swift in Sources */,
 				C64BF5CF216F048600D63EF4 /* Date Extensions.swift in Sources */,
 				C6E79519215C2A4A00F539E7 /* AppDelegate.swift in Sources */,
@@ -541,6 +556,7 @@
 				C6E79569215EC91B00F539E7 /* SeasonViewController.swift in Sources */,
 				C6CA7E6B2162C64E0016290A /* UIColor Extensions.swift in Sources */,
 				C617F2EA2169CD690025916D /* DriverModelController.swift in Sources */,
+				C6B9038C2170690700895ED0 /* ImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

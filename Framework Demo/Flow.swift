@@ -13,6 +13,7 @@ import SafariServices
 enum AppStep: Step {
     case driver(driver: Driver)
     case home
+    case imageViewer(image: UIImage)
     case news(item: Int)
     case results(race: Race)
     case settings
@@ -46,10 +47,12 @@ class ResultsFlow: Flow {
         guard let step = step as? AppStep else { return NextFlowItems.none }
         
         switch step {
-        case .results(let race):
-            return navigateToResults(of: race)
         case .driver(let driver):
             return navigateToDriver(driver)
+        case .imageViewer(let image):
+            return navigateToImage(with: image)
+        case .results(let race):
+            return navigateToResults(of: race)
         case .website(let url):
             return navigateToURL(url)
         default:
@@ -63,15 +66,6 @@ class ResultsFlow: Flow {
     }
     */
     
-    private func navigateToResults(of race: Race) -> NextFlowItems {
-        let resultsVC = ResultsViewController()
-        resultsVC.race = race
-        resultsVC.viewModel = ResultsViewModel()
-        rootViewController.pushViewController(resultsVC, animated: true)
-        
-        return .one(flowItem: NextFlowItem(nextPresentable: resultsVC, nextStepper: resultsVC.viewModel))
-    }
-    
     private func navigateToDriver(_ driver: Driver) -> NextFlowItems {
         let driverVM = DriverViewModel(driver: driver)
         let driverVC = DriverViewController(viewModel: driverVM)
@@ -79,6 +73,24 @@ class ResultsFlow: Flow {
         rootViewController.pushViewController(driverVC, animated: true)
         
         return .one(flowItem: NextFlowItem(nextPresentable: driverVC, nextStepper: driverVM))
+    }
+    
+    private func navigateToImage(with image: UIImage) -> NextFlowItems {
+        let imageVC = ImageViewController()
+        imageVC.driverImage = image
+        
+        rootViewController.pushViewController(imageVC, animated: true)
+        
+        return .none
+    }
+    
+    private func navigateToResults(of race: Race) -> NextFlowItems {
+        let resultsVC = ResultsViewController()
+        resultsVC.race = race
+        resultsVC.viewModel = ResultsViewModel()
+        rootViewController.pushViewController(resultsVC, animated: true)
+        
+        return .one(flowItem: NextFlowItem(nextPresentable: resultsVC, nextStepper: resultsVC.viewModel))
     }
     
     private func navigateToURL(_ url: URL) -> NextFlowItems {

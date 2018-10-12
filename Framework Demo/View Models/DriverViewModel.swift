@@ -6,7 +6,7 @@
 //  Copyright © 2018 James Coleman. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import RxFlow
 import RxSwift
 import RealmSwift
@@ -30,6 +30,10 @@ final class DriverViewModel {
 }
 
 extension DriverViewModel: Stepper {
+    public func selectedImage(_ image: UIImage) {
+        step.accept(AppStep.imageViewer(image: image))
+    }
+    
     public func selectedUrl() {
         guard let url = driver.url else { return }
         step.accept(AppStep.website(url: url))

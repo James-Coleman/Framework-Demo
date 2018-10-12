@@ -114,7 +114,12 @@ class DriverViewController: FormViewController {
         
         form = Form(
             Section()
-                <<< CircleRow(DriverRowName.image.rawValue)
+                <<< CircleRow(DriverRowName.image.rawValue) { row in
+                    row.onCellSelection({ [unowned self] (cell, row) in
+                        guard let image = cell.circleImage.image else { return }
+                        self.viewModel.selectedImage(image)
+                    })
+                }
                 
                 +++ Section()
                 <<< TextFloatLabelRow(DriverRowName.name.rawValue) { row in
