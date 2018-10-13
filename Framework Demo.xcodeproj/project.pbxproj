@@ -16,6 +16,7 @@
 		C64D0AA52168F95B00271056 /* CircleImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64D0AA42168F95B00271056 /* CircleImageRow.swift */; };
 		C6B9038C2170690700895ED0 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9038B2170690700895ED0 /* ImageViewController.swift */; };
 		C6B9038E2170696700895ED0 /* ImageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9038D2170696700895ED0 /* ImageCells.swift */; };
+		C6B903912171C86600895ED0 /* ImageViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6B903902171C86500895ED0 /* ImageViewer.storyboard */; };
 		C6CA7E652160ACF10016290A /* AppNavCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E642160ACF10016290A /* AppNavCon.swift */; };
 		C6CA7E67216159530016290A /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E66216159530016290A /* NewsViewModel.swift */; };
 		C6CA7E692162C5BB0016290A /* AppTabCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E682162C5BB0016290A /* AppTabCon.swift */; };
@@ -81,6 +82,7 @@
 		C64D0AA42168F95B00271056 /* CircleImageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageRow.swift; sourceTree = "<group>"; };
 		C6B9038B2170690700895ED0 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		C6B9038D2170696700895ED0 /* ImageCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCells.swift; sourceTree = "<group>"; };
+		C6B903902171C86500895ED0 /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewer.storyboard; sourceTree = "<group>"; };
 		C6CA7E642160ACF10016290A /* AppNavCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavCon.swift; sourceTree = "<group>"; };
 		C6CA7E66216159530016290A /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		C6CA7E682162C5BB0016290A /* AppTabCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabCon.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				C6E79564215D7F2500F539E7 /* Model.swift */,
 				C6CA7E7B21656A8D0016290A /* ReachabilityManager.swift */,
 				C6E7956A215EC9C200F539E7 /* Reactive+RxRealmDataSources.swift */,
+				C6B903902171C86500895ED0 /* ImageViewer.storyboard */,
 				C6E7951C215C2A4A00F539E7 /* Main.storyboard */,
 				C6E7951F215C2A4D00F539E7 /* Assets.xcassets */,
 				C6E79521215C2A4D00F539E7 /* LaunchScreen.storyboard */,
@@ -418,6 +421,7 @@
 			files = (
 				C6E79523215C2A4D00F539E7 /* LaunchScreen.storyboard in Resources */,
 				C6E79520215C2A4D00F539E7 /* Assets.xcassets in Resources */,
+				C6B903912171C86600895ED0 /* ImageViewer.storyboard in Resources */,
 				C6E7951E215C2A4A00F539E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

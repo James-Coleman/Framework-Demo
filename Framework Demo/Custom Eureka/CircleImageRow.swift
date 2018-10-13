@@ -8,11 +8,14 @@
 
 import UIKit
 import Eureka
+import Hero
 
 public class CircleCell: Cell<UIImage>, CellType {
     
     public var circleImage: UIImageView
     public var label: UILabel
+    
+    private var constraintsAreSetup = false
     
     init() {
         self.circleImage = UIImageView()
@@ -52,25 +55,31 @@ public class CircleCell: Cell<UIImage>, CellType {
         circleImage.contentMode = .scaleAspectFill
         circleImage.clipsToBounds = true
         circleImage.layer.cornerRadius = (cellHeight - (2 * circleMargin)) / 2
+        circleImage.hero.id = "image_0"
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
         
-        NSLayoutConstraint.activate([
-            circleImage.widthAnchor.constraint(equalTo: circleImage.heightAnchor),
+        if constraintsAreSetup == false {
             
-            circleImage.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: circleMargin),
-            circleImage.trailingAnchor.constraint(greaterThanOrEqualTo: trailingAnchor, constant: circleMargin),
-            circleImage.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: circleMargin),
-            circleImage.bottomAnchor.constraint(greaterThanOrEqualTo: bottomAnchor, constant: circleMargin),
-            
-            circleImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            circleImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
-            label.centerXAnchor.constraint(equalTo: centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor)
-            ])
+            NSLayoutConstraint.activate([
+                circleImage.widthAnchor.constraint(equalTo: circleImage.heightAnchor),
+                
+                circleImage.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: circleMargin),
+                circleImage.trailingAnchor.constraint(greaterThanOrEqualTo: trailingAnchor, constant: circleMargin),
+                circleImage.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: circleMargin),
+                circleImage.bottomAnchor.constraint(greaterThanOrEqualTo: bottomAnchor, constant: circleMargin),
+                
+                circleImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+                circleImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+                
+                label.centerXAnchor.constraint(equalTo: centerXAnchor),
+                label.centerYAnchor.constraint(equalTo: centerYAnchor)
+                ])
+        }
+        
+        constraintsAreSetup = true
     }
 }
 

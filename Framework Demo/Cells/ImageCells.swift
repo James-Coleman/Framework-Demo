@@ -22,6 +22,10 @@
 
 import UIKit
 
+class ImageCell: UICollectionViewCell {
+    @IBOutlet weak var imageView: UIImageView!
+}
+
 class ScrollingImageCell: UICollectionViewCell {
     var imageView: UIImageView!
     var scrollView: UIScrollView!

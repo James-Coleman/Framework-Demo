@@ -45,6 +45,8 @@ class ImageViewController: UICollectionViewController {
         collectionView?.addGestureRecognizer(panGR)
     }
     
+    override var prefersStatusBarHidden: Bool { return true }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         for v in (collectionView!.visibleCells as? [ScrollingImageCell])! {
@@ -80,7 +82,7 @@ extension ImageViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let imageCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? ScrollingImageCell)!
+        guard let imageCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? ScrollingImageCell) else { return UICollectionViewCell() }
         imageCell.image = driverImage
         imageCell.imageView.hero.id = "image_\(indexPath.item)"
         imageCell.imageView.hero.modifiers = [.position(CGPoint(x:view.bounds.width/2, y:view.bounds.height+view.bounds.width/2)), .scale(0.6), .fade]
@@ -98,7 +100,7 @@ extension ImageViewController: UICollectionViewDelegateFlowLayout {
 
 extension ImageViewController:UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let cell = collectionView?.visibleCells[0] as? ScrollingImageCell,
+        if let cell = collectionView?.visibleCells.first as? ScrollingImageCell,
             cell.scrollView.zoomScale == 1 {
             let v = panGR.velocity(in: nil)
             return v.y > abs(v.x)

@@ -76,10 +76,13 @@ class ResultsFlow: Flow {
     }
     
     private func navigateToImage(with image: UIImage) -> NextFlowItems {
-        let imageVC = ImageViewController()
+        let storyboard = UIStoryboard(name: "ImageViewer", bundle: nil)
+        
+        guard let imageVC = storyboard.instantiateInitialViewController() as? ImageViewController else { return .none }
+        
         imageVC.driverImage = image
         
-        rootViewController.pushViewController(imageVC, animated: true)
+        rootViewController.present(imageVC, animated: true)
         
         return .none
     }
