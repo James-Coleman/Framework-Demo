@@ -16,6 +16,7 @@ class SettingsViewController: FormViewController {
 //    private var viewModel = SettingsViewModel()
 
     private var realm = try! Realm()
+    private var theme: Theme!
     
     private func setDoneButton() {
         let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tappedDone))
@@ -37,13 +38,15 @@ class SettingsViewController: FormViewController {
         setDoneButton()
         navigationItem.hidesBackButton = true
         
-        let dataSource = Theme.themes
+        theme = realm.object(ofType: Theme.self, forPrimaryKey: "0")
+        
+        let dataSource = ThemeData.themes
         
         let themeRows = dataSource.map { (theme) -> ListCheckRow<String> in
             return ListCheckRow<String>(theme.name) { row in
                 row.title = theme.name
                 row.selectableValue = theme.name
-                row.value = nil
+                row.value = self.theme.name == theme.name ? theme.name : nil
             }
         }
         
@@ -53,7 +56,10 @@ class SettingsViewController: FormViewController {
             guard let indexPath = themeSection.selectedRow()?.indexPath else { return }
             let theme = dataSource[indexPath.row]
             try! self.realm.write {
-                self.realm.add(theme, update: true)
+                self.theme.name = theme.name
+                self.theme.backgroundColour = theme.backgroundColour
+                self.theme.foregroundColour = theme.foregroundColour
+//                self.realm.add(theme, update: true)
             }
         }
         

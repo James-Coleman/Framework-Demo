@@ -28,11 +28,15 @@ extension ThemeObserver {
         if let theme = theme {
             return Observable.from(object: theme)
         } else {
-            let firstTheme = Theme.themes[0] // Ferrari. Is guaranteed to exist.
+            let firstTheme = ThemeData.themes[0] // Ferrari. Is guaranteed to exist. This isn't an `if let` to allow for easily always returning something
+            let theme = Theme()
+            theme.name = firstTheme.name
+            theme.backgroundColour = firstTheme.backgroundColour
+            theme.foregroundColour = firstTheme.foregroundColour
             try! realm.write {
-                realm.add(firstTheme, update: true)
+                realm.add(theme, update: true)
             }
-            return Observable.from(object: firstTheme)
+            return Observable.from(object: theme)
         }
     }
 }
