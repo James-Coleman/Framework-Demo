@@ -22,10 +22,22 @@ final class SeasonViewController: UITableViewController {
         })
     }
     
+    private func setBarButtonItems() {
+        let button = UIBarButtonItem(title: "Theme", style: .plain, target: self, action: #selector(tappedBarButton))
+        navigationItem.setRightBarButton(button, animated: false)
+    }
+    
+    @objc
+    private func tappedBarButton() {
+        viewModel.tappedBarButton()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupRefreshControl()
+//        setupRefreshControl() // Commented out while refresh does not do anything.
+        
+        setBarButtonItems()
         
         viewModel.title
             .bind(to: rx.title)
@@ -66,5 +78,10 @@ final class SeasonViewController: UITableViewController {
             }
             .disposed(by: bag)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.hero.isEnabled = false
     }
 }

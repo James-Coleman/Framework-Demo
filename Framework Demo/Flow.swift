@@ -9,6 +9,7 @@
 import UIKit
 import RxFlow
 import SafariServices
+import Hero
 
 enum AppStep: Step {
     case driver(driver: Driver)
@@ -30,7 +31,6 @@ class ResultsFlow: Flow {
     
     private lazy var rootViewController: UINavigationController = {
         let navCon = AppNavCon()
-        
         let seasonVC = SeasonViewController()
         seasonVC.viewModel = seasonViewModel
         seasonVC.tabBarItem = UITabBarItem(title: "Results", image: nil, selectedImage: nil)
@@ -53,6 +53,8 @@ class ResultsFlow: Flow {
             return navigateToImage(with: image)
         case .results(let race):
             return navigateToResults(of: race)
+        case .settings:
+            return showSettings()
         case .website(let url):
             return navigateToURL(url)
         default:
@@ -106,6 +108,15 @@ class ResultsFlow: Flow {
         return .none
     }
     
+    private func showSettings() -> NextFlowItems {
+        let settingsVC = SettingsViewController()
+        
+        rootViewController.hero.navigationAnimationType = .autoReverse(presenting: .cover(direction: .down))
+        rootViewController.hero.isEnabled = true
+        rootViewController.pushViewController(settingsVC, animated: true)
+        
+        return .none
+    }
 }
 
 class NewsFlow: Flow {
@@ -155,8 +166,6 @@ class AppFlow: Flow {
         switch step {
         case .home:
             return startAtHome()
-        case .settings:
-            return showSettings()
         default:
             return .none
         }
@@ -178,9 +187,6 @@ class AppFlow: Flow {
             ])
     }
     
-    private func showSettings() -> NextFlowItems {
-        return .none
-    }
     
     
     /*

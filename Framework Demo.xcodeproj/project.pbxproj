@@ -17,6 +17,7 @@
 		C6B9038C2170690700895ED0 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9038B2170690700895ED0 /* ImageViewController.swift */; };
 		C6B9038E2170696700895ED0 /* ImageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9038D2170696700895ED0 /* ImageCells.swift */; };
 		C6B903912171C86600895ED0 /* ImageViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6B903902171C86500895ED0 /* ImageViewer.storyboard */; };
+		C6B903932172152700895ED0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B903922172152700895ED0 /* SettingsViewController.swift */; };
 		C6CA7E652160ACF10016290A /* AppNavCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E642160ACF10016290A /* AppNavCon.swift */; };
 		C6CA7E67216159530016290A /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E66216159530016290A /* NewsViewModel.swift */; };
 		C6CA7E692162C5BB0016290A /* AppTabCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E682162C5BB0016290A /* AppTabCon.swift */; };
@@ -83,6 +84,7 @@
 		C6B9038B2170690700895ED0 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		C6B9038D2170696700895ED0 /* ImageCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCells.swift; sourceTree = "<group>"; };
 		C6B903902171C86500895ED0 /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewer.storyboard; sourceTree = "<group>"; };
+		C6B903922172152700895ED0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C6CA7E642160ACF10016290A /* AppNavCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavCon.swift; sourceTree = "<group>"; };
 		C6CA7E66216159530016290A /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		C6CA7E682162C5BB0016290A /* AppTabCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabCon.swift; sourceTree = "<group>"; };
@@ -317,9 +319,10 @@
 			isa = PBXGroup;
 			children = (
 				C6CA7E6D2162C81F0016290A /* DriverViewController.swift */,
+				C6B9038B2170690700895ED0 /* ImageViewController.swift */,
 				C6E79570215ED09E00F539E7 /* ResultsViewController.swift */,
 				C6E79568215EC91B00F539E7 /* SeasonViewController.swift */,
-				C6B9038B2170690700895ED0 /* ImageViewController.swift */,
+				C6B903922172152700895ED0 /* SettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				C6E7956B215EC9C200F539E7 /* Reactive+RxRealmDataSources.swift in Sources */,
 				C6E7956D215ECFE400F539E7 /* SeasonViewModel.swift in Sources */,
 				C6CA7E722162CC090016290A /* FloatLabelRow.swift in Sources */,
+				C6B903932172152700895ED0 /* SettingsViewController.swift in Sources */,
 				C64BF5D2216F0D4800D63EF4 /* DateFormatter Extensions.swift in Sources */,
 				C6E79565215D7F2500F539E7 /* Model.swift in Sources */,
 				C6CA7E7C21656A8D0016290A /* ReachabilityManager.swift in Sources */,

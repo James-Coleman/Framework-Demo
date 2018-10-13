@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import Hero
 
 final class ResultsViewController: UITableViewController {
     public var viewModel: ResultsViewModel!

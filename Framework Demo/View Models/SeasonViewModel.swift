@@ -53,4 +53,8 @@ extension SeasonViewModel: Stepper {
     public func selected(_ race: Race) {
         step.accept(AppStep.results(race: race))
     }
+    
+    public func tappedBarButton() {
+        step.accept(AppStep.settings)
+    }
 }
