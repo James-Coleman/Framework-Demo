@@ -7,22 +7,27 @@
 //
 
 import UIKit
+import RxSwift
+import RealmSwift
 
-class AppNavCon: UINavigationController {
+class AppNavCon: UINavigationController, ThemeObserver {
+    var realm = try! Realm()
+    var observableTheme: Observable<Theme>!
+    var bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
-        navigationBar.titleTextAttributes      = textAttributes
-        navigationBar.largeTitleTextAttributes = textAttributes
         navigationBar.barStyle                 = .black // This changes the status bar colour to white.
         navigationBar.barTintColor             = .red
         navigationBar.tintColor                = .white
         navigationBar.prefersLargeTitles       = true
+        navigationBar.isOpaque = false
+        
+        observableTheme = subscribeToNewTheme()
+        observeNewTheme()
     }
 
 }

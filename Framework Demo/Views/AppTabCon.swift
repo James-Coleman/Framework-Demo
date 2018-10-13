@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import RxSwift
+import RealmSwift
 
-class AppTabCon: UITabBarController {
-
+class AppTabCon: UITabBarController, ThemeObserver {
+    var realm = try! Realm()
+    var observableTheme: Observable<Theme>!
+    var bag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +23,10 @@ class AppTabCon: UITabBarController {
         tabBar.barTintColor = .red
         tabBar.tintColor = .white
         tabBar.unselectedItemTintColor = UIColor(white: 1, alpha: 0.5)
+        tabBar.isOpaque = false
+        
+        observableTheme = subscribeToNewTheme()
+        observeNewTheme()
     }
     
 

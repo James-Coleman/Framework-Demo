@@ -9,21 +9,22 @@
 import UIKit
 import Eureka
 import Hero
+import RealmSwift
 
 class SettingsViewController: FormViewController {
+    
+//    private var viewModel = SettingsViewModel()
 
+    private var realm = try! Realm()
+    
     private func setDoneButton() {
         let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tappedDone))
-        navigationItem.setLeftBarButton(button, animated: false)
+        navigationItem.setRightBarButton(button, animated: false)
     }
     
     @objc
     private func tappedDone() {
-//        dismiss(animated: true)
         hero.dismissViewController()
-//        hero.dismissViewController { [weak self] in
-//            self?.navigationController?.hero.isEnabled = false
-//        }
     }
     
     override func viewDidLoad() {
@@ -31,27 +32,33 @@ class SettingsViewController: FormViewController {
 
         // Do any additional setup after loading the view.
         
-        title = "Theme"
+        title = "Settings"
         
         setDoneButton()
+        navigationItem.hidesBackButton = true
         
-        form +++
-            SelectableSection<ListCheckRow<String>>("", selectionType: .singleSelection(enableDeselection: false))
-            <<< ListCheckRow<String>("Mercedes") { row in
-                row.title = "Mercedes"
-                row.selectableValue = "Mercedes"
+        let dataSource = Theme.themes
+        
+        let themeRows = dataSource.map { (theme) -> ListCheckRow<String> in
+            return ListCheckRow<String>(theme.name) { row in
+                row.title = theme.name
+                row.selectableValue = theme.name
                 row.value = nil
             }
-            <<< ListCheckRow<String>("Sauber") { row in
-                row.title = "Sauber"
-                row.selectableValue = "Sauber"
-                row.value = nil
-            }
-            <<< ListCheckRow<String>("Williams") { row in
-                row.title = "Williams"
-                row.selectableValue = "Williams"
-                row.value = nil
         }
+        
+        let themeSection = SelectableSection<ListCheckRow<String>>("Theme", selectionType: .singleSelection(enableDeselection: false))
+        themeSection.append(contentsOf: themeRows)
+        themeSection.onSelectSelectableRow = { [unowned self] (cell, row) in
+            guard let indexPath = themeSection.selectedRow()?.indexPath else { return }
+            let theme = dataSource[indexPath.row]
+            try! self.realm.write {
+                self.realm.add(theme, update: true)
+            }
+        }
+        
+        form
+            +++ themeSection
     }
     
 

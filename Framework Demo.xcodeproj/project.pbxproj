@@ -18,6 +18,8 @@
 		C6B9038E2170696700895ED0 /* ImageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B9038D2170696700895ED0 /* ImageCells.swift */; };
 		C6B903912171C86600895ED0 /* ImageViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6B903902171C86500895ED0 /* ImageViewer.storyboard */; };
 		C6B903932172152700895ED0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B903922172152700895ED0 /* SettingsViewController.swift */; };
+		C6B903952172770A00895ED0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B903942172770A00895ED0 /* Theme.swift */; };
+		C6B903972172832E00895ED0 /* ThemeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B903962172832E00895ED0 /* ThemeObserver.swift */; };
 		C6CA7E652160ACF10016290A /* AppNavCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E642160ACF10016290A /* AppNavCon.swift */; };
 		C6CA7E67216159530016290A /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E66216159530016290A /* NewsViewModel.swift */; };
 		C6CA7E692162C5BB0016290A /* AppTabCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E682162C5BB0016290A /* AppTabCon.swift */; };
@@ -85,6 +87,8 @@
 		C6B9038D2170696700895ED0 /* ImageCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCells.swift; sourceTree = "<group>"; };
 		C6B903902171C86500895ED0 /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewer.storyboard; sourceTree = "<group>"; };
 		C6B903922172152700895ED0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C6B903942172770A00895ED0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		C6B903962172832E00895ED0 /* ThemeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeObserver.swift; sourceTree = "<group>"; };
 		C6CA7E642160ACF10016290A /* AppNavCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavCon.swift; sourceTree = "<group>"; };
 		C6CA7E66216159530016290A /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		C6CA7E682162C5BB0016290A /* AppTabCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabCon.swift; sourceTree = "<group>"; };
@@ -259,8 +263,10 @@
 				C6E79561215D765900F539E7 /* View Models */,
 				C6CA7E632160ACD40016290A /* Views */,
 				C6E79518215C2A4A00F539E7 /* AppDelegate.swift */,
+				C6B903962172832E00895ED0 /* ThemeObserver.swift */,
 				C6E79566215D82C300F539E7 /* Flow.swift */,
 				C6E79564215D7F2500F539E7 /* Model.swift */,
+				C6B903942172770A00895ED0 /* Theme.swift */,
 				C6CA7E7B21656A8D0016290A /* ReachabilityManager.swift */,
 				C6E7956A215EC9C200F539E7 /* Reactive+RxRealmDataSources.swift */,
 				C6B903902171C86500895ED0 /* ImageViewer.storyboard */,
@@ -536,6 +542,7 @@
 			files = (
 				C64D0AA32168DF4700271056 /* WikiAPI.swift in Sources */,
 				C6CA7E702162C8450016290A /* DriverViewModel.swift in Sources */,
+				C6B903972172832E00895ED0 /* ThemeObserver.swift in Sources */,
 				C6CA7E6E2162C81F0016290A /* DriverViewController.swift in Sources */,
 				C64D0AA52168F95B00271056 /* CircleImageRow.swift in Sources */,
 				C64BF5CD216E9E3600D63EF4 /* UITableView Extensions.swift in Sources */,
@@ -559,6 +566,7 @@
 				C6E79565215D7F2500F539E7 /* Model.swift in Sources */,
 				C6CA7E7C21656A8D0016290A /* ReachabilityManager.swift in Sources */,
 				C6CA7E67216159530016290A /* NewsViewModel.swift in Sources */,
+				C6B903952172770A00895ED0 /* Theme.swift in Sources */,
 				C617F2EC216A07710025916D /* File Manager Extensions.swift in Sources */,
 				C6E79573215ED0DC00F539E7 /* ResultsViewModel.swift in Sources */,
 				C6E79569215EC91B00F539E7 /* SeasonViewController.swift in Sources */,
