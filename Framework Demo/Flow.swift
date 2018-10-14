@@ -110,12 +110,20 @@ class ResultsFlow: Flow {
     
     private func showSettings() -> NextFlowItems {
         let settingsVC = SettingsViewController()
+        let newNavCon = AppNavCon(rootViewController: settingsVC)
         
         rootViewController.hero.navigationAnimationType = .autoReverse(presenting: .cover(direction: .down))
+        rootViewController.hero.modalAnimationType = .autoReverse(presenting: .cover(direction: .down))
 //        rootViewController.hero.navigationAnimationType = .none
         rootViewController.hero.isEnabled = true
-        rootViewController.navigationBar.hero.isEnabled = false
+//        rootViewController.navigationBar.hero.isEnabled = false
         rootViewController.pushViewController(settingsVC, animated: true) // Changing this to `false` removes the fade animation but also removes the rotate
+        
+        newNavCon.hero.modalAnimationType = .autoReverse(presenting: .cover(direction: .down))
+        newNavCon.hero.isEnabled = true
+        newNavCon.navigationBar.hero.isEnabled = false
+        
+//        rootViewController.present(newNavCon, animated: true)
         
         return .none
     }
