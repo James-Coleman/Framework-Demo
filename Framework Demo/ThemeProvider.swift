@@ -12,18 +12,12 @@ import RealmSwift
 import RxRealm
 
 protocol ThemeProvider {
-    var realm: Realm { get }
-    var observableTheme: Observable<Theme>! { get }
-    var bag: DisposeBag { get }
-    
-    func subscribeToNewTheme() -> Observable<Theme>
-    func observeNewTheme()
+    var realm: Realm { get } // This could be split into a procotol e.g. RealmProvider
+    var observableTheme: Observable<Theme> { get }
 }
 
 extension ThemeProvider {
-    
-    func subscribeToNewTheme() -> Observable<Theme> {
-//        let themes = realm.objects(Theme.self)
+    var observableTheme: Observable<Theme> {
         let theme = realm.object(ofType: Theme.self, forPrimaryKey: "0")
         if let theme = theme {
             return Observable.from(object: theme)
@@ -42,9 +36,16 @@ extension ThemeProvider {
     }
 }
 
-extension ThemeProvider where Self: UINavigationController {
+protocol ThemeObserver {
+    var viewModel: ThemeProvider { get }
+    var bag: DisposeBag { get }
+    
+    func observeNewTheme()
+}
+
+extension ThemeObserver where Self: UINavigationController {
     func observeNewTheme() {
-        observableTheme.subscribe(onNext: { [unowned self] (theme) in
+        viewModel.observableTheme.subscribe(onNext: { [unowned self] (theme) in
             let foregroundColour = UIColor(theme.foregroundColour)
             
             let textAttributes = [NSAttributedString.Key.foregroundColor: foregroundColour]
@@ -60,9 +61,9 @@ extension ThemeProvider where Self: UINavigationController {
     }
 }
 
-extension ThemeProvider where Self: UITabBarController {
+extension ThemeObserver where Self: UITabBarController {
     func observeNewTheme() {
-        observableTheme.subscribe(onNext: { [unowned self] (theme) in
+        viewModel.observableTheme.subscribe(onNext: { [unowned self] (theme) in
             self.tabBar.tintColor = UIColor(theme.foregroundColour)
             self.tabBar.barTintColor = UIColor(theme.backgroundColour)
             self.tabBar.unselectedItemTintColor = UIColor(white: theme.statusBarWhite ? 1 : 0, alpha: 0.5)
@@ -70,3 +71,4 @@ extension ThemeProvider where Self: UITabBarController {
             .disposed(by: bag)
     }
 }
+

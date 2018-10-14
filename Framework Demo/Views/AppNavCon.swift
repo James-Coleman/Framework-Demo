@@ -11,20 +11,23 @@ import RxSwift
 import RealmSwift
 
 class AppNavCon: UINavigationController, ThemeObserver {
-    var realm = try! Realm()
-    var observableTheme: Observable<Theme>!
     var bag = DisposeBag()
+    
+    var viewModel: ThemeProvider = AppNavViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        navigationBar.prefersLargeTitles       = true
-        navigationBar.isOpaque = false
+        navigationBar.prefersLargeTitles    = true
+        navigationBar.isOpaque              = false
         
-        observableTheme = subscribeToNewTheme()
         observeNewTheme()
     }
 
+}
+
+struct AppNavViewModel: ThemeProvider {
+    let realm = try! Realm()
 }

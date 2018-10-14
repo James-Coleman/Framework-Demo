@@ -40,6 +40,10 @@ final class SeasonViewController: UITableViewController {
     
     @objc
     private func tappedBarButton() {
+        UIView.animate(withDuration: 1) { [unowned self] in
+            self.navigationItem.rightBarButtonItem?.customView?.transform = .init(rotationAngle: CGFloat(Double.pi))
+        }
+        
         viewModel.tappedBarButton()
     }
     

@@ -11,31 +11,21 @@ import RxSwift
 import RealmSwift
 
 class AppTabCon: UITabBarController, ThemeObserver {
-    var realm = try! Realm()
-    var observableTheme: Observable<Theme>!
     var bag = DisposeBag()
+    
+    var viewModel: ThemeProvider = AppTabViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        tabBar.unselectedItemTintColor = UIColor(white: 1, alpha: 0.5)
         tabBar.isOpaque = false
         
-        observableTheme = subscribeToNewTheme()
         observeNewTheme()
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+struct AppTabViewModel: ThemeProvider {
+    let realm = try! Realm()
 }
