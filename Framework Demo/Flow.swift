@@ -112,8 +112,10 @@ class ResultsFlow: Flow {
         let settingsVC = SettingsViewController()
         
         rootViewController.hero.navigationAnimationType = .autoReverse(presenting: .cover(direction: .down))
+//        rootViewController.hero.navigationAnimationType = .none
         rootViewController.hero.isEnabled = true
-        rootViewController.pushViewController(settingsVC, animated: true)
+        rootViewController.navigationBar.hero.isEnabled = false
+        rootViewController.pushViewController(settingsVC, animated: true) // Changing this to `false` removes the fade animation but also removes the rotate
         
         return .none
     }

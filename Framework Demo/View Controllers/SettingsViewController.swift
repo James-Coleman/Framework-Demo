@@ -19,13 +19,31 @@ class SettingsViewController: FormViewController {
     private var theme: Theme!
     
     private func setDoneButton() {
-        let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tappedDone))
+        let buttonOld = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tappedDone))
+        let button = UIBarButtonItem(image: UIImage(named: "Settings Cog"), style: .plain, target: self, action: #selector(tappedDone))
+        button.customView?.hero.id = "button"
+        
+        let navHeight = navigationController!.navigationBar.frame.maxY
+        
+        let buttonNew = UIButton(frame: CGRect(x: 360, y: navHeight + 12, width: 24, height: 24))
+        buttonNew.setImage(UIImage(named: "Settings Cog"), for: .normal)
+        buttonNew.addTarget(self, action: #selector(tappedDone), for: .touchUpInside)
+        buttonNew.hero.modifiers = [.rotate(CGFloat(Double.pi)), .useGlobalCoordinateSpace]
+        view.addSubview(buttonNew)
+        
+        let button2 = UIBarButtonItem(customView: buttonNew)
+//        button2.customView?.hero.id = "button2"
+//        button2.customView?.hero.modifiers = [.rotate(CGFloat(2 * Double.pi)), .useGlobalCoordinateSpace]
+        
         navigationItem.setRightBarButton(button, animated: false)
+//        navigationItem.setLeftBarButton(button2, animated: false)
+
     }
     
     @objc
     private func tappedDone() {
         hero.dismissViewController()
+//        navigationController?.popViewController(animated: false)
     }
     
     override func viewDidLoad() {

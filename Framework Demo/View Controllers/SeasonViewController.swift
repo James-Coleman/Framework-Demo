@@ -23,8 +23,19 @@ final class SeasonViewController: UITableViewController {
     }
     
     private func setBarButtonItems() {
-        let button = UIBarButtonItem(title: "Theme", style: .plain, target: self, action: #selector(tappedBarButton))
-        navigationItem.setRightBarButton(button, animated: false)
+        let button = UIBarButtonItem(image: UIImage(named: "Settings Cog"), style: .plain, target: self, action: #selector(tappedBarButton))
+        
+        let buttonNew = UIButton(frame: CGRect(x: 360, y: 12, width: 24, height: 24))
+        buttonNew.setImage(UIImage(named: "Settings Cog"), for: .normal)
+        buttonNew.addTarget(self, action: #selector(tappedBarButton), for: .touchUpInside)
+        view.addSubview(buttonNew)
+//        navigationController?.navigationBar.addSubview(buttonNew)
+        
+        let button2 = UIBarButtonItem(customView: buttonNew)
+        button2.customView?.hero.id = "button2"
+//        button2.customView?.hero.modifiers = [.rotate(CGFloat(2 * Double.pi))]
+        
+        navigationItem.setRightBarButtonItems([button], animated: false)
     }
     
     @objc
