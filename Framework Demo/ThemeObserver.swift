@@ -65,6 +65,7 @@ extension ThemeObserver where Self: UITabBarController {
         observableTheme.subscribe(onNext: { [unowned self] (theme) in
             self.tabBar.tintColor = UIColor(theme.foregroundColour)
             self.tabBar.barTintColor = UIColor(theme.backgroundColour)
+            self.tabBar.unselectedItemTintColor = UIColor(white: theme.statusBarWhite ? 1 : 0, alpha: 0.5)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: bag)
     }
