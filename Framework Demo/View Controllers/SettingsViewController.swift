@@ -59,6 +59,7 @@ class SettingsViewController: FormViewController {
                 self.theme.name = theme.name
                 self.theme.backgroundColour = theme.backgroundColour
                 self.theme.foregroundColour = theme.foregroundColour
+                self.theme.statusBarWhite = theme.statusBarWhite
 //                self.realm.add(theme, update: true)
             }
         }

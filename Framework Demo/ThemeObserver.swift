@@ -33,6 +33,7 @@ extension ThemeObserver {
             theme.name = firstTheme.name
             theme.backgroundColour = firstTheme.backgroundColour
             theme.foregroundColour = firstTheme.foregroundColour
+            theme.statusBarWhite = firstTheme.statusBarWhite
             try! realm.write {
                 realm.add(theme, update: true)
             }
@@ -53,7 +54,7 @@ extension ThemeObserver where Self: UINavigationController {
             
             self.navigationBar.tintColor = foregroundColour
             self.navigationBar.barTintColor = UIColor(theme.backgroundColour)
-            
+            self.navigationBar.barStyle = theme.statusBarWhite ? .black : .default
         }, onError: nil, onCompleted: nil, onDisposed: nil)
         .disposed(by: bag)
     }

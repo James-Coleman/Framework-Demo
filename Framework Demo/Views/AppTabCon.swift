@@ -20,8 +20,6 @@ class AppTabCon: UITabBarController, ThemeObserver {
 
         // Do any additional setup after loading the view.
         
-        tabBar.barTintColor = .red
-        tabBar.tintColor = .white
         tabBar.unselectedItemTintColor = UIColor(white: 1, alpha: 0.5)
         tabBar.isOpaque = false
         

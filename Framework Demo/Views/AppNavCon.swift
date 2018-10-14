@@ -20,9 +20,6 @@ class AppNavCon: UINavigationController, ThemeObserver {
 
         // Do any additional setup after loading the view.
         
-        navigationBar.barStyle                 = .black // This changes the status bar colour to white.
-        navigationBar.barTintColor             = .red
-        navigationBar.tintColor                = .white
         navigationBar.prefersLargeTitles       = true
         navigationBar.isOpaque = false
         
