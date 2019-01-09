@@ -45,7 +45,7 @@ class ImageViewController: UICollectionViewController {
         collectionView?.addGestureRecognizer(panGR)
     }
     
-    override var prefersStatusBarHidden: Bool { return true }
+    override var prefersStatusBarHidden: Bool { return false }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()

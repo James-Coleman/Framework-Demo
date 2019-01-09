@@ -25,6 +25,7 @@ class SettingsViewController: FormViewController {
         
         let navHeight = navigationController!.navigationBar.frame.maxY
         
+/*
         let buttonNew = UIButton(frame: CGRect(x: 360, y: navHeight + 12, width: 24, height: 24))
         buttonNew.setImage(UIImage(named: "Settings Cog Upside Down"), for: .normal)
         buttonNew.addTarget(self, action: #selector(tappedDone), for: .touchUpInside)
@@ -35,6 +36,7 @@ class SettingsViewController: FormViewController {
         button.customView?.hero.modifiers = [.rotate(CGFloat(Double.pi)), .useGlobalCoordinateSpace]
 //        button2.customView?.hero.id = "button2"
 //        button2.customView?.hero.modifiers = [.rotate(CGFloat(2 * Double.pi)), .useGlobalCoordinateSpace]
+*/
         
         navigationItem.setRightBarButton(button, animated: false)
 //        navigationItem.setRightBarButton(button2, animated: false)

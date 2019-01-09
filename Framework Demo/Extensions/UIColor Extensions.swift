@@ -24,8 +24,17 @@ extension UIColor {
         let floatGreen = CGFloat(green)
         let floatBlue = CGFloat(blue)
         
+        /*
         self.init(
             red: floatRed / 255,
+            green: floatGreen / 255,
+            blue: floatBlue / 255,
+            alpha: a
+        )
+        */
+        
+        self.init(
+            displayP3Red: floatRed / 255,
             green: floatGreen / 255,
             blue: floatBlue / 255,
             alpha: a

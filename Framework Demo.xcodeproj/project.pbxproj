@@ -20,6 +20,7 @@
 		C6B903932172152700895ED0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B903922172152700895ED0 /* SettingsViewController.swift */; };
 		C6B903952172770A00895ED0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B903942172770A00895ED0 /* Theme.swift */; };
 		C6B903972172832E00895ED0 /* ThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B903962172832E00895ED0 /* ThemeProvider.swift */; };
+		C6B9039A2175A96600895ED0 /* ThemeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B903992175A96600895ED0 /* ThemeObserver.swift */; };
 		C6CA7E652160ACF10016290A /* AppNavCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E642160ACF10016290A /* AppNavCon.swift */; };
 		C6CA7E67216159530016290A /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E66216159530016290A /* NewsViewModel.swift */; };
 		C6CA7E692162C5BB0016290A /* AppTabCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CA7E682162C5BB0016290A /* AppTabCon.swift */; };
@@ -89,6 +90,7 @@
 		C6B903922172152700895ED0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C6B903942172770A00895ED0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C6B903962172832E00895ED0 /* ThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProvider.swift; sourceTree = "<group>"; };
+		C6B903992175A96600895ED0 /* ThemeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeObserver.swift; sourceTree = "<group>"; };
 		C6CA7E642160ACF10016290A /* AppNavCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavCon.swift; sourceTree = "<group>"; };
 		C6CA7E66216159530016290A /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		C6CA7E682162C5BB0016290A /* AppTabCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabCon.swift; sourceTree = "<group>"; };
@@ -190,6 +192,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		C6B903982175A94B00895ED0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C6B903962172832E00895ED0 /* ThemeProvider.swift */,
+				C6B903992175A96600895ED0 /* ThemeObserver.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		C6CA7E632160ACD40016290A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,11 +270,11 @@
 				C6CA7E78216337150016290A /* Custom Eureka */,
 				C6CA7E6C2162C6810016290A /* Extensions */,
 				C6E7955F215D762F00F539E7 /* Model Controllers */,
+				C6B903982175A94B00895ED0 /* Protocols */,
 				C6E79560215D764C00F539E7 /* View Controllers */,
 				C6E79561215D765900F539E7 /* View Models */,
 				C6CA7E632160ACD40016290A /* Views */,
 				C6E79518215C2A4A00F539E7 /* AppDelegate.swift */,
-				C6B903962172832E00895ED0 /* ThemeProvider.swift */,
 				C6E79566215D82C300F539E7 /* Flow.swift */,
 				C6E79564215D7F2500F539E7 /* Model.swift */,
 				C6B903942172770A00895ED0 /* Theme.swift */,
@@ -543,6 +554,7 @@
 				C64D0AA32168DF4700271056 /* WikiAPI.swift in Sources */,
 				C6CA7E702162C8450016290A /* DriverViewModel.swift in Sources */,
 				C6B903972172832E00895ED0 /* ThemeProvider.swift in Sources */,
+				C6B9039A2175A96600895ED0 /* ThemeObserver.swift in Sources */,
 				C6CA7E6E2162C81F0016290A /* DriverViewController.swift in Sources */,
 				C64D0AA52168F95B00271056 /* CircleImageRow.swift in Sources */,
 				C64BF5CD216E9E3600D63EF4 /* UITableView Extensions.swift in Sources */,

@@ -10,7 +10,7 @@
 import Moya
 
 enum ErgastAPI {
-    case getCurrentSeason
+    case get2018Season
     case get(year: String, round: String)
 }
 
@@ -22,8 +22,8 @@ extension ErgastAPI: TargetType {
     var path: String {
         var start: String {
             switch self {
-            case .getCurrentSeason:
-                return "/current"
+            case .get2018Season:
+                return "/2018"
             case let .get(year, round):
                 return "/\(year)/\(round)/results"
             }

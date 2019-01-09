@@ -24,17 +24,21 @@ final class SeasonViewModel {
     public var tableViewData: Observable<(AnyRealmCollection<Race>, RealmChangeset?)>!
     
     init() {
+        // This was used to calculate the current season expected to be displayed, but when it returned 2019 before the 2019 season had started, this resulted in no races being shown and an error occured. The current season identified as 2018 and would be downloaded every time upon launch, which created conflicts with the unique ids.
+        /*
         let currentDate = Date()
         let calendar = Calendar(identifier: .gregorian)
         let currentYear = calendar.component(.year, from: currentDate)
         let stringCurrentYear = String(currentYear)
+        */
         
         let races = realm.objects(Race.self)
-        let currentSeasonRaces = races.filter("season == %@", stringCurrentYear)
-        let observableRaces = Observable.changeset(from: currentSeasonRaces)
+//        let currentSeasonRaces = races.filter("season == %@", stringCurrentYear)
+        let races2018 = races.filter("season == '2018'")
+        let observableRaces = Observable.changeset(from: races2018)
         
-        if currentSeasonRaces.count == 0 {
-            seasonModelController.getCurrentSeason()
+        if races2018.count == 0 {
+            seasonModelController.get2018Season()
         }
         
         tableViewData = observableRaces

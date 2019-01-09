@@ -19,8 +19,8 @@ struct SeasonModelController {
         plugins: [NetworkLoggerPlugin(verbose: false)] // Verbose logging includes the full response. Otherwise logging just includes the headers.
     )
     
-    public func getCurrentSeason() {
-        let observableCurrentSeason = provider.rx.request(.getCurrentSeason)
+    public func get2018Season() {
+        let observableCurrentSeason = provider.rx.request(.get2018Season)
             .map(ErgastResponse.self)
             .asObservable()
         
